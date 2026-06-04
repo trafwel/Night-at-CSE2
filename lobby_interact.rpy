@@ -84,6 +84,20 @@ screen lobby_hotspots():
             add "images/items/hotspot_idle.png" xalign 0.5
             text "Bulletin board" style "hotspot_label"
 
+    ## Chud — always present, standing near Lab 112
+    button:
+        style "hotspot_btn"
+        xsize 110
+        xpos 0.58 ypos 0.48 xanchor 0.5 yanchor 0.5
+        action Return("chud")
+        vbox:
+            xalign 0.5 spacing 2
+            add "images/items/hotspot_idle.png" xalign 0.5
+            if has_upperclass_id:
+                text "Chud ✓" style "hotspot_label"
+            else:
+                text "???" style "hotspot_label"
+
     ## Go upstairs — only after getting the ID
     if has_upperclass_id:
         button:
@@ -127,12 +141,10 @@ label scene1_lobby_explore:
             call fl1_vending
         elif _return == "bulletin":
             call fl1_bulletin
+        elif _return == "chud":
+            call fl1_chud_interact
         elif _return == "exit":
             jump scene1_stairwell_locked
-
-        # Chud appears after you've poked around a bit
-        if len(lobby_examined) >= 2 and not chud_appeared:
-            call fl1_chud_arrives
 
         jump .loop
 
@@ -152,13 +164,12 @@ label fl1_stairwell:
     $ lobby_examined.add("stairwell")
     "Card reader blinks red. Your undergrad ID does nothing."
     if has_upperclass_id:
-        inner "Chud's ID should work here."
+        inner "The Chud's ID should work here."
     return
 
 label fl1_bulletin:
     $ lobby_examined.add("bulletin")
-    "Research posters. Internship flyers. A hand-drawn comic in the corner."
-    "'Ship it anyway.'"
+    "Research posters. Internship flyers. A hand-drawn shitpost on one of the whiteboards."
     inner "...Same."
     return
 
@@ -171,14 +182,14 @@ label fl1_vending:
 label fl1_breakroom:
     $ lobby_examined.add("breakroom")
     if cooking_done:
-        "The break room. The Tendon Kohaku Set sits perfectly plated."
+        "The break room. The bowl of instant noodles sits perfectly plated."
         inner "I can't believe I made that."
         return
 
     "A small break room. Microwave, mini fridge, a hotplate someone left."
-    "And in the fridge: shrimp, eggs, some pre-made tempura batter. Tsuyu sauce in the door."
+    "And in the fridge: shrimp, eggs, some pre-made tempura batter, sausage. Some sauce in the door cubby too."
 
-    inner "...I could make Tendon Kohaku Set. Right now. At 3 AM."
+    inner "...I could make some food. Right now. At 3 AM."
     inner "I shouldn't. But I absolutely could."
 
     menu:
@@ -201,7 +212,7 @@ label fl1_cook_challenge:
         $ pickup_item("tendon_kohaku")
 
         # play sound sizzle
-        "It comes together. Perfect crunch on the shrimp. Sauce ratio is {i}right{/i}."
+        "It comes together. Perfect crunch on the shrimp. Sauce ratio is juuuust {i}right{/i}."
         "The smell fills the entire floor."
 
         inner "I am built different."
@@ -218,7 +229,7 @@ label fl1_lab112:
 
     if chud_appeared:
         "Lab 112's door is ajar. Inside, Chud's laptop is still open."
-        "Their Upperclass ID is gone — because it's in your pocket."
+        "Their Upperclass ID is gone. Because it's in your pocket."
         return
 
     if len(lobby_examined) < 2:
@@ -232,67 +243,100 @@ label fl1_lab112:
 
 
 # ════════════════════════════════════════════════════════════
-#  Chud the grad student arrives
+#  Chud — interactive NPC, always standing near Lab 112
 # ════════════════════════════════════════════════════════════
 
-label fl1_chud_arrives:
-
-    $ chud_appeared = True
-
-    scene bg lobby with dissolve
-
-    "From the direction of Lab 112, the door swings open."
+label fl1_chud_interact:
 
     show chud idle at npc_spot with dissolve
 
-    "A grad student. Hoodie. Half-asleep. Badge flipped upside down."
-    "They sniff the air."
-
-    if has_tendon_kohaku:
-        chud "...Is that Tendon Kohaku."
+    if has_upperclass_id:
+        # Already has the ID — brief dismissal
+        chud "You still here? Go. Go go go."
         show mc idle at player_spot with dissolve
-        mc "I— yes?"
+        mc "Right. Going."
+        hide chud with dissolve
+        hide mc with dissolve
+        return
+
+    if has_tendon_kohaku and not chud_appeared:
+        # Cooked first, now approaching Chud
+        $ chud_appeared = True
+        show mc idle at player_spot with dissolve
+        "They're leaning against the wall near Lab 112. Hoodie. Badge upside down. Eyes half-closed."
+        "Then they sniff the air."
+        chud "...Is that food?"
+        mc "I— yes. I made it. In the break room."
         chud "At three in the morning."
-        mc "There was a hotplate."
-        chud "I have been in that lab for eleven days straight."
-        chud "The last thing I ate was a granola bar I found in my own jacket pocket."
-    else:
-        chud "...Do you smoke?"
+        mc "There was a hotplate and I panicked."
+        chud "I have been in that lab for eleven days."
+        chud "The last thing I ate was a granola bar I found in my own jacket."
+        jump fl1_chud_give_id
+
+    elif not chud_appeared:
+        # First time talking — no food yet
+        $ chud_appeared = True
         show mc idle at player_spot with dissolve
-        mc "I mean— occasionally—"
-        chud "I can smell it on you from here."
+        "They're slumped against the wall outside Lab 112. Hoodie. Eyes half-open."
+        chud "...hey."
+        mc "Hey. Are you okay?"
         chud "I've been in that lab for eleven days."
-        chud "I needed that."
+        mc "...That's not healthy."
+        chud "No it is not."
+        chud "You trying to get upstairs?"
+        mc "How did you—"
+        chud "There are like four of you every other week."
+        "They look at you properly."
+        chud "I'd give you my card but... I'm starving. You got anything to eat?"
+        mc "I'll see what I can find."
+        hide chud with dissolve
+        hide mc with dissolve
+        inner "They want food. The break room had stuff in the fridge..."
+        return
 
-    "They look at you. Really look at you."
+    elif has_tendon_kohaku:
+        # Talked before, now has food
+        show mc idle at player_spot with dissolve
+        chud "...Wait. Is that—"
+        mc "Tendon Kohaku Set. Just made it."
+        chud "I see. And I will eat."
+        jump fl1_chud_give_id
 
-    chud "You're trying to get upstairs, aren't you."
+    else:
+        # Talked before, still no food
+        show mc idle at player_spot with dissolve
+        chud "You find anything yet?"
+        mc "Still looking."
+        chud "I'll be here. Obviously."
+        hide chud with dissolve
+        hide mc with dissolve
+        return
 
-    mc "...Yes."
 
-    chud "Third floor?"
+label fl1_chud_give_id:
 
+    show chud idle at npc_spot with None
+    show mc idle at player_spot with None
+
+    chud "You're trying to get to the third floor, aren't you."
     mc "How did you—"
-
     chud "There are like four of you down here at night every other week."
 
-    "They unclip their ID badge and hold it out."
+    "They unclip their ID and hold it out."
 
-    chud "It'll get you to floor two. Maybe three if the reader's bugged."
+    chud "Gets you to floor two, maybe three if the reader's bugged."
     chud "Bring it back. Eventually."
+    chud "Hopefully this is enough to get Paul. G. Allen to bless me so I can be done..."
 
     if has_tendon_kohaku:
-        chud "And leave the food."
-        mc "Done."
+        chud "Leave the food."
+        mc "Obviously."
 
     $ has_upperclass_id = True
     $ pickup_item("upperclass_id")
 
     hide chud with dissolve
-    hide mc   with dissolve
+    hide mc with dissolve
 
-    "They take the bowl — or disappear back into Lab 112 — and the door closes."
-    inner "That was the nicest interaction I've had all week."
-
-    "A ▶ prompt glows near the stairwell door."
+    inner "That was the most efficient transaction I have ever made."
     return
