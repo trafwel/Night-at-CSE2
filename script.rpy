@@ -88,7 +88,7 @@ label start:
     scene black with fade
 
     "3:00 AM."
-    "You are walking home from CSE2 after a long day of doomscrolling."
+    "You are walking home after a long day of doomscrolling."
     "The campus is empty. Quiet. The fountain is lit up. It's kind of nice actually."
 
     pause 0.4
@@ -96,8 +96,7 @@ label start:
     scene bg uw night with dissolve
     show mc idle at player_spot with dissolve
 
-    inner "I'll just finish the project tomorrow morning. Super early. Like five AM."
-    inner "That's basically tonight."
+    inner "I'll just finish the project later. The due date's not until six, it's fine..."
 
     pause 0.3
 
@@ -177,7 +176,13 @@ label scene1_entrance:
     "Then they start walking around the building. It seems like they forgot their Husky Card? That's lucky."
 
     inner "That won't hold. I need to get upstairs before they find another way in."
-    inner "But first... I need a way past these card readers."
+    # [TODO ANIM: mc thinking]
+    inner "Let's see- if I can just finish my assignment... I need to get my laptop first. I think it was on the second floor somewhere?"
+    inner "Wait, I forgot about that one bug with the light reflection. Shoot. Maybe I can see if there's anyone on the third floor that can help me?"
+    # [TODO ANIM: mc clutching_head]
+    inner "And eduroam's down too! Shoot- I'll just take it one step at a time, I guess."
+    # [TODO ANIM: mc deep_breath]
+    inner "But first... I need a way past these card readers. Undergrad ID won't cut it."
 
     hide mc with None
 
@@ -209,10 +214,10 @@ label scene1_stairwell_try_id:
     mc "(quietly) Let's go."
 
     if has_upperclass_id and has_tendon_kohaku:
-        inner "The elevator is unlocked too. I could skip straight to four."
+        inner "Hm... I guess I could use the card to skip straight to the roof... Is that a good idea though?"
 
         menu:
-            "Take the stairs floor by floor.":
+            "Take the stairs.":
                 jump scene2_floor2
             "Take the elevator straight to the roof (Floor 4).":
                 jump scene4_elevator_route
@@ -240,7 +245,7 @@ label scene2_floor2:
     # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
-    inner "201A? 203? The one with the broken whiteboard?"
+    inner "202? 204? The one with the broken whiteboard? Shoot, I can't remember!"
 
     hide mc with None
 
@@ -345,7 +350,7 @@ label scene2_found_laptop:
 
     show mc idle at player_spot with dissolve
 
-    "There it is. 632-C's lab laptop, sitting exactly where you left it."
+    "There it is. Your laptop, sitting exactly where you left it. Still running Blender, too."
 
     # show Polymarket popup ad as a joke
     show screen polymarket_ad
@@ -358,7 +363,7 @@ label scene2_found_laptop:
     show mc typing at player_spot with None
 
     "You grab the laptop and shove it in your bag."
-    inner "Floor 3. Seitz's office. He might be able to help with finishing this project."
+    inner "Floor 3. It'll buy me some time, and Seitz's office is there. Maybe he's still there, somehow?"
 
     $ report_quality += 1
 
@@ -410,10 +415,10 @@ label scene3_floor3:
     show mc idle at player_spot with dissolve
 
     "Third floor. Faculty offices."
-    "At the far end of the corridor: a light under Prof. Seitz's door."
+    "At the far end of the corridor is a light under Prof. Seitz's door."
 
     inner ".. how is he still here? You know what, never mind. Far be it from me to look a gift horse in the mouth."
-    inner "If anyone can tell me how to salvage this report in two hours, it's him."
+    inner "If anyone can tell me how to salvage this project in two hours, it's him."
 
     # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
@@ -424,7 +429,7 @@ label scene3_floor3:
 
     show groupmate normal at npc_far with None
 
-    inner "HOW. HOW ARE THEY ALWAYS HERE."
+    inner "HOW."
 
     groupmate "(barely above a whisper) ...I can hear you thinking."
 
@@ -451,7 +456,7 @@ label scene3_reach_seitz:
 
     scene bg seitz_office with dissolve
 
-    "You make it to the door and knock. Fast, quiet, urgent, and desperate."
+    "You make it to the door and knock."
 
     pause 0.8
 
@@ -495,32 +500,32 @@ label scene3_seitz_advice:
 
     mc "Really?"
 
-    seitz "Your methodology is weak. The conclusion needs a rewrite. But the core idea is there."
+    seitz "No, I was joking. Your thing isn't even rendering at all."
 
-    "He leans over and starts marking things up on your screen."
+    "He leans over and starts pointing to random blocks of code."
 
-    seitz "Section three — change 'we tried' to 'we evaluated.' Cut the last two paragraphs of the results. They repeat."
+    seitz "I would look at how you're using the light physics here and calculating the... "
 
     # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
-    mc "(writing fast) Okay. Okay. What about the evaluation metric?"
+    mc "Okay. But what about this bug with the object not being linked to the-"
 
-    seitz "Use the one from the paper I assigned in week four. You read it?"
+    seitz "That's Project 1 stuff. You remember that, right?"
 
     mc "...Mostly."
 
-    seitz "Close enough."
+    seitz "..."
 
     $ report_quality += 2
 
     "Twenty minutes later:"
 
-    seitz "That's as good as it's going to get tonight."
+    seitz "That's as good as it's going to get tonight. You'll probably pass. Probably."
 
     mc "Thank you. Seriously."
 
-    seitz "Don't thank me. Come to office hours occasionally."
+    seitz "Don't thank me. You should've come to office hours."
 
     "And then, from outside the door:"
 
@@ -534,17 +539,15 @@ label scene3_seitz_advice:
 
     mc "That's—"
 
-    seitz "I know. I heard them in the stairwell."
-
-    "He stands up. Smooths his shirt."
+    seitz "The consequences of your actions, I would guess. Good luck."
 
     hide mc with None
     hide seitz with None
 
-    jump scene3_seitz_holds_off
+    jump scene3
 
 
-label scene3_seitz_holds_off:
+label scene3:
 
     scene bg seitz_office with dissolve
 
@@ -553,15 +556,15 @@ label scene3_seitz_holds_off:
     "Prof. Seitz opens the office door."
 
     # play sound dday  -- TODO: D-Day audio
-    seitz "{size=+12}{b}SHUT THE F— UP!{/b}{/size}"
+    seitz "Hey, is that a student who slacked off on his work running downstairs?"
 
-    "The hallway goes silent."
+    "The hallway goes silent, before a frenzied series of footsteps are heard thundering towards the lower floors."
+
+    # play sound crash  -- TODO: crash audio
 
     show mc panicked at player_spot with dissolve
 
-    inner "I have never respected anyone more in my life."
-
-    seitz "(to you, quietly) The signal is bad on this floor. You need to get to the roof to upload."
+    seitz "(to you, quietly) The signal is bad on this floor. You need to get to the roof to upload this to Canvas."
 
     mc "The {i}roof{/i}?"
 
@@ -569,7 +572,9 @@ label scene3_seitz_holds_off:
 
     inner "How does he know that."
 
-    seitz "I said go."
+    seitz "I have mysterious secrets."
+
+    inner "What?"
 
     hide seitz with dissolve
     hide mc with dissolve
@@ -586,11 +591,10 @@ label scene4_elevator_route:
 
     scene bg stairwell with dissolve
 
-    "You take the elevator."
-    "Fast. Clean. No Seitz."
+    "You take the elevator and wait in your brief moment of peace."
 
-    inner "I'll just... wing the report. I've done it before."
-    inner "(I have never done it before.)"
+    inner "I'll just finish this real quick. This should be easy."
+    inner "(This isn't easy.)"
 
     jump scene4_roof_approach
 
@@ -612,12 +616,12 @@ label scene4_roof_approach:
 
     "The roof."
     "Cold air. The city spread out below. The UW campus quiet in every direction."
-    "Your phone: two bars. Signal climbing."
+    "Your phone has three bars. Hopefully it'll be enough.."
 
     # [TODO ANIM: mc typing]
     show mc typing at player_spot with None
 
-    "You open the laptop. Find the submission portal."
+    "You open the laptop. Find the Canvas submission portal."
 
     inner "Come on. Come on."
 
@@ -632,7 +636,7 @@ label scene4_roof_approach:
 
     show groupmate angry at npc_spot with dissolve
 
-    groupmate "END OF THE LINE."
+    groupmate "END OF THE LINE. THE DEAD LINE. BY WHICH I MEAN YOU'RE DEAD."
 
     hide mc with None
 
@@ -873,7 +877,7 @@ label scene_jumpscare:
     scene bg hallway
 
     "You stop."
-    "One second too long."
+    "Things are eerily quiet- maybe he missed you some-."
 
     pause 0.5
 
@@ -890,10 +894,9 @@ label scene_jumpscare:
     scene black with fade
 
     "You wake up."
-    "You're in the sub-basement. The one that isn't on any map."
-    "There is a whiteboard. There is a chair. There is a half-finished project."
+    "You're in the CSE1 dungeon."
 
-    inner "...Again?"
+    inner "...Oh no."
 
     pause 0.4
 
