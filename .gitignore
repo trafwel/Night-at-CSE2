@@ -1,0 +1,10 @@
+# Ren'Py compiled cache
+game/*.rpyc
+game/**/*.rpyc
+game/cache/
+game/saves/
+game/log.txt
+game/errors.txt
+
+# macOS
+.DS_Store

@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 27: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    "images/mc_thinking/frame0001.png" pause 0.041667
+                                             ^
+
+Ren'Py Version: Ren'Py 8.5.3.26051504
+Tue Jun  9 11:46:19 2026
