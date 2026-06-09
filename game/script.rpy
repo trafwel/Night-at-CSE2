@@ -854,8 +854,8 @@ label ending_neutral:
     hide groupmate with dissolve
 
     scene black with fade
-    "[ END — Night at CSE2 ]"
-    "[ Group H · CSE 457 ]"
+    "[[ END — Night at CSE2 ]"
+    "[[ Group H · CSE 457 ]"
     return
 
 
@@ -880,8 +880,8 @@ label ending_good:
     hide groupmate with dissolve
 
     scene black with fade
-    "[ GOOD END — Night at CSE2 ]"
-    "[ Group H · CSE 457 ]"
+    "[[ GOOD END — Night at CSE2 ]"
+    "[[ Group H · CSE 457 ]"
     return
 
 
@@ -977,9 +977,9 @@ label scene_jumpscare:
 
     pause 0.4
 
-    "[ BAD END ]"
+    "[[ BAD END ]"
     ""
-    "[ TWO NIGHTS AT CSE2 — COMING NEVER ]"
-    "[ Group H · CSE 457 ]"
+    "[[ TWO NIGHTS AT CSE2 — COMING NEVER ]"
+    "[[ Group H · CSE 457 ]"
 
     return
