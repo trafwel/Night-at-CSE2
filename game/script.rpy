@@ -12,7 +12,7 @@ image bg stairwell    = Solid("#080808")
 image bg floor2       = Solid("#0a0c18")   # TODO: replace with photo of floor 2 hallway
 image bg floor2_lab   = Solid("#0c0e20")   # TODO: replace with photo of a lab room
 image bg floor3       = Solid("#0c0a14")   # TODO: replace with photo of floor 3 hallway
-image bg seitz_office = Solid("#10080a")   # TODO: replace with photo of office door
+image bg seitz_office = im.Scale("images/seitz_room.jpeg", 1920, 1080)   # TODO: replace with photo of office door
 image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof photo
 
 # ── MC ANIMATION STATES ──────────────────────────────────────
@@ -109,7 +109,7 @@ image mc celebrate = "images/mc_placeholder.png"   # [TODO ANIM: arms up, dancin
 # ── NPC PLACEHOLDERS ─────────────────────────────────────────
 image seitz idle  = "images/seitz_placeholder.png"   # [TODO: 3D model]
 image chud idle   = "images/chud_placeholder.png"    # [TODO: 3D model]
-image paul idle   = "images/paul_placeholder.png"    # [TODO: 3D model]
+image paul idle   = "images/paul.png"    # [TODO: 3D model]
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
 transform player_spot:
