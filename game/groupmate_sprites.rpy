@@ -1,5 +1,48 @@
-## Auto-generated ATL sprite animations
-## PNG frames — no WebM codec required, full alpha transparency
+## Groupmate sprite animations
+## Idle: PNG frame ATL. Other states: WebM in images/anims/
+
+define GM_MOVIE_SIZE = (540, 1080)
+
+init python:
+    for _gm_channel in (
+        "gm_angry",
+        "gm_walking",
+        "gm_shooting",
+        "gm_jumpscare",
+        "gm_punch",
+    ):
+        renpy.music.register_channel(_gm_channel, "music", loop=True, movie=True)
+
+image groupmate angry = Movie(
+    play="images/anims/angry.webm",
+    loop=True,
+    channel="gm_angry",
+    size=GM_MOVIE_SIZE,
+)
+image groupmate walking = Movie(
+    play="images/anims/walking.webm",
+    loop=True,
+    channel="gm_walking",
+    size=GM_MOVIE_SIZE,
+)
+image groupmate shooting = Movie(
+    play="images/anims/gunshooting.webm",
+    loop=False,
+    channel="gm_shooting",
+    size=GM_MOVIE_SIZE,
+)
+image groupmate jumpscare = Movie(
+    play="images/anims/fnaf.webm",
+    loop=False,
+    channel="gm_jumpscare",
+    size=GM_MOVIE_SIZE,
+)
+image groupmate punch = Movie(
+    play="images/anims/punching.webm",
+    loop=False,
+    channel="gm_punch",
+    size=GM_MOVIE_SIZE,
+)
 
 image groupmate normal:
     zoom 0.8
@@ -123,70 +166,5 @@ image groupmate normal:
         "images/groupmate_idle/frame0059.png"
         pause 0.041667
         "images/groupmate_idle/frame0060.png"
-        pause 0.041667
-        repeat
-
-image groupmate angry:
-    zoom 0.8
-    block:
-        "images/groupmate_scream/frame0001.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0002.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0003.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0004.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0005.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0006.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0007.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0008.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0009.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0010.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0011.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0012.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0013.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0014.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0015.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0016.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0017.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0018.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0019.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0020.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0021.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0022.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0023.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0024.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0025.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0026.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0027.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0028.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0029.png"
-        pause 0.041667
-        "images/groupmate_scream/frame0030.png"
         pause 0.041667
         repeat

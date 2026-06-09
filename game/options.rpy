@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -16,6 +16,10 @@ define config.name = _("Night at CSE2")
 
 ## Start fullscreen so backgrounds fill the whole monitor.
 default preferences.fullscreen = True
+
+init python:
+    config.default_sfx_volume = 1.0
+    config.default_music_volume = 1.0
 
 
 ## Determines if the title given above is shown on the main menu screen. Set

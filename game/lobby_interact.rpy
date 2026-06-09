@@ -204,14 +204,14 @@ label fl1_cook_challenge:
     "You fire up the hotplate."
     "You have done this exactly once before. You remember most of the steps."
 
-    call screen qte_cook
+    call qte_cook_run from _call_qte_cook_run
 
-    if _return == "success":
+    if cook_result == "success":
         $ cooking_done = True
         $ has_tendon_kohaku = True
         $ pickup_item("tendon_kohaku")
 
-        # play sound sizzle
+        play sound "audio/sizzle.ogg"
         "It comes together. Perfect crunch on the shrimp. Sauce ratio is {i}right{/i}."
         "The smell fills the entire floor."
 

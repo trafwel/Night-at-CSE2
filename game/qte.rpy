@@ -60,71 +60,51 @@ style qte_btn_text:
 
 
 # ── Timed cooking challenge ───────────────────────────────────
+# Label-based (screen variables were resetting mid-quiz on retry).
 # Usage:
-#   call screen qte_cook
+#   call qte_cook_run
 #   if _return == "success": ...
-#
-screen qte_cook():
-    modal True
-    zorder 50
 
-    default step = 0
-    default correct = 0
+label qte_cook_run:
+    $ cook_score = 0
 
-    timer 10.0 action Return("fail")
+    "TENDON KOHAKU SET — QUICK-FIRE!"
 
-    frame:
-        xfill True yfill True
-        background "#33220011"
+    menu:
+        "Step 1: Pick the broth base!"
 
-    frame:
-        xalign 0.5
-        yalign 0.5
-        background Frame("#1a1000ee", 12, 12)
-        padding (50, 30)
-        minimum (600, 300)
+        "Dashi stock":
+            $ cook_score += 1
+        "Tap water":
+            pass
+        "Energy drink":
+            pass
 
-        vbox:
-            spacing 16
-            xalign 0.5
+    menu:
+        "Step 2: Tempura fry time?"
 
-            text "TENDON KOHAKU SET — QUICK-FIRE!":
-                size 22 color "#ffcc44" xalign 0.5 bold True
+        "90 seconds":
+            $ cook_score += 1
+        "2 minutes":
+            pass
+        "Until vibes":
+            pass
 
-            if step == 0:
-                text "Step 1: Pick the broth base!" size 18 color "#ffeeaa" xalign 0.5
-                hbox:
-                    spacing 20 xalign 0.5
-                    textbutton "Dashi stock"    action [SetScreenVariable("step",1), SetScreenVariable("correct", correct+1)]
-                    textbutton "Tap water"      action [SetScreenVariable("step",1)]
-                    textbutton "Energy drink"   action [SetScreenVariable("step",1)]
-            elif step == 1:
-                text "Step 2: Tempura fry time?" size 18 color "#ffeeaa" xalign 0.5
-                hbox:
-                    spacing 20 xalign 0.5
-                    textbutton "2 minutes"      action [SetScreenVariable("step",2)]
-                    textbutton "90 seconds"     action [SetScreenVariable("step",2), SetScreenVariable("correct", correct+1)]
-                    textbutton "Until vibes"    action [SetScreenVariable("step",2)]
-            elif step == 2:
-                text "Step 3: Sauce how much tsuyu?" size 18 color "#ffeeaa" xalign 0.5
-                hbox:
-                    spacing 20 xalign 0.5
-                    textbutton "A little"       action [SetScreenVariable("step",3)]
-                    textbutton "A lot"          action [SetScreenVariable("step",3)]
-                    textbutton "Just right"     action [SetScreenVariable("step",3), SetScreenVariable("correct", correct+1)]
-            elif step == 3:
-                if correct >= 2:
-                    timer 0.01 action Return("success")
-                else:
-                    timer 0.01 action Return("fail")
+    menu:
+        "Step 3: Sauce — how much tsuyu?"
 
-            bar:
-                value AnimatedValue(0, 10.0, 10.0)
-                range 10.0
-                xsize 480 ysize 12 xalign 0.5
-                left_bar  Frame("#ffaa00", 0, 0)
-                right_bar Frame("#332200", 0, 0)
-                thumb None
+        "Just right":
+            $ cook_score += 1
+        "A little":
+            pass
+        "A lot":
+            pass
+
+    if cook_score >= 2:
+        $ cook_result = "success"
+    else:
+        $ cook_result = "fail"
+    return
 
 
 # ── Timed room-search screen ─────────────────────────────────

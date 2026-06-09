@@ -15,96 +15,37 @@ image bg floor3       = Solid("#0c0a14")   # TODO: replace with photo of floor 3
 image bg seitz_office = im.Scale("images/seitz_room.jpeg", 1920, 1080)   # TODO: replace with photo of office door
 image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof photo
 
-# ── MC ANIMATION STATES ──────────────────────────────────────
-# Each state is a placeholder until the real 3D animation is rendered.
-# To add a new anim: render it from Blender, add frames to images/mc_<state>/,
-# then replace the line below with an ATL frame definition (like groupmate_sprites.rpy).
-image mc idle     = "images/mc_placeholder.png"    # [TODO ANIM: neutral stand]
-
-# mc thinking — 36 frames @ 24fps, loops
-image mc thinking:
-    block:
-        "images/mc_thinking/frame0001.png"
-        pause 0.041667
-        "images/mc_thinking/frame0002.png"
-        pause 0.041667
-        "images/mc_thinking/frame0003.png"
-        pause 0.041667
-        "images/mc_thinking/frame0004.png"
-        pause 0.041667
-        "images/mc_thinking/frame0005.png"
-        pause 0.041667
-        "images/mc_thinking/frame0006.png"
-        pause 0.041667
-        "images/mc_thinking/frame0007.png"
-        pause 0.041667
-        "images/mc_thinking/frame0008.png"
-        pause 0.041667
-        "images/mc_thinking/frame0009.png"
-        pause 0.041667
-        "images/mc_thinking/frame0010.png"
-        pause 0.041667
-        "images/mc_thinking/frame0011.png"
-        pause 0.041667
-        "images/mc_thinking/frame0012.png"
-        pause 0.041667
-        "images/mc_thinking/frame0013.png"
-        pause 0.041667
-        "images/mc_thinking/frame0014.png"
-        pause 0.041667
-        "images/mc_thinking/frame0015.png"
-        pause 0.041667
-        "images/mc_thinking/frame0016.png"
-        pause 0.041667
-        "images/mc_thinking/frame0017.png"
-        pause 0.041667
-        "images/mc_thinking/frame0018.png"
-        pause 0.041667
-        "images/mc_thinking/frame0019.png"
-        pause 0.041667
-        "images/mc_thinking/frame0020.png"
-        pause 0.041667
-        "images/mc_thinking/frame0021.png"
-        pause 0.041667
-        "images/mc_thinking/frame0022.png"
-        pause 0.041667
-        "images/mc_thinking/frame0023.png"
-        pause 0.041667
-        "images/mc_thinking/frame0024.png"
-        pause 0.041667
-        "images/mc_thinking/frame0025.png"
-        pause 0.041667
-        "images/mc_thinking/frame0026.png"
-        pause 0.041667
-        "images/mc_thinking/frame0027.png"
-        pause 0.041667
-        "images/mc_thinking/frame0028.png"
-        pause 0.041667
-        "images/mc_thinking/frame0029.png"
-        pause 0.041667
-        "images/mc_thinking/frame0030.png"
-        pause 0.041667
-        "images/mc_thinking/frame0031.png"
-        pause 0.041667
-        "images/mc_thinking/frame0032.png"
-        pause 0.041667
-        "images/mc_thinking/frame0033.png"
-        pause 0.041667
-        "images/mc_thinking/frame0034.png"
-        pause 0.041667
-        "images/mc_thinking/frame0035.png"
-        pause 0.041667
-        "images/mc_thinking/frame0036.png"
-        pause 0.041667
-        repeat
-
-image mc shocked  = "images/mc_placeholder.png"    # [TODO ANIM: jump back, wide stance]
-image mc panicked = "images/mc_placeholder.png"    # [TODO ANIM: head turning, sweating]
-image mc running  = "images/mc_placeholder.png"    # [TODO ANIM: running cycle]
-image mc hiding   = "images/mc_placeholder.png"    # [TODO ANIM: crouched against wall]
-image mc cooking  = "images/mc_placeholder.png"    # [TODO ANIM: stirring/plating gesture]
-image mc typing   = "images/mc_placeholder.png"    # [TODO ANIM: typing at keyboard]
-image mc celebrate = "images/mc_placeholder.png"   # [TODO ANIM: arms up, dancing]
+# ── ANIMATIONS (definitions in mc_sprites.rpy / groupmate_sprites.rpy) ──
+# Assets live in game/images/anims/
+#
+# MC — WebM (ready):
+#   mc thinking   → MC_Thinking.webm
+#   mc shocked    → MC_Shocked.webm
+#   mc panicked   → MC_Scared.webm
+#   mc running    → jump.webm
+#   mc celebrate  → MC_Happy.webm
+#
+# MC — placeholder PNG (TODO: add WebM):
+#   mc idle, mc hiding, mc cooking, mc typing
+#   mc clutching_head, mc deep_breath
+#
+# GROUPMATE — WebM (ready):
+#   groupmate angry      → angry.webm
+#   groupmate walking    → walking.webm
+#   groupmate shooting   → gunshooting.webm
+#   groupmate jumpscare  → fnaf.webm
+#   groupmate punch      → punching.webm  (unused in script)
+#
+# GROUPMATE — PNG ATL (ready):
+#   groupmate normal     → images/groupmate_idle/
+#
+# GROUPMATE — TODO: dance anim (true ending)
+#
+# Placeholder PNGs still used below for MC states without a WebM yet.
+image mc idle     = "images/mc_placeholder.png"
+image mc hiding   = "images/mc_placeholder.png"
+image mc cooking  = "images/mc_placeholder.png"
+image mc typing   = "images/mc_placeholder.png"
 
 # ── NPC PLACEHOLDERS ─────────────────────────────────────────
 image seitz idle  = "images/seitz_placeholder.png"   # [TODO: 3D model]
@@ -134,12 +75,12 @@ transform jumpscare_rush:
     xalign -0.35 yalign 0.85 zoom 0.9 alpha 1.0
     easeout 0.30 xalign 0.5 yalign 0.5 zoom 3.6
 
-# ── AUDIO ────────────────────────────────────────────────────
-# TODO: add audio files to game/audio/
-define audio.glock       = "audio/glock.mp3"       # TODO: gunshot sfx
-define audio.dday        = "audio/dday.mp3"         # TODO: D-Day / Seitz theme
-define audio.sizzle      = "audio/sizzle.mp3"       # TODO: cooking sfx
-define audio.door_beep   = "audio/door_beep.mp3"    # TODO: card reader beep
+# ── AUDIO (game/audio/) ──────────────────────────────────────
+define audio.glock       = "audio/glock.ogg"
+define audio.jumpscare   = "audio/jumpscare.ogg"
+define audio.sizzle      = "audio/sizzle.ogg"
+define audio.door_beep   = "audio/door_beep.ogg"
+define audio.fnaf        = "audio/fnaf.mp3"
 
 # ── CHARACTERS ───────────────────────────────────────────────
 define mc        = Character("You",            color="#87ceeb")
@@ -179,7 +120,6 @@ label start:
 
     "And then:"
 
-    # [TODO ANIM: mc shocked]
     show mc shocked at player_spot with None
 
     show groupmate normal at npc_spot with dissolve
@@ -196,19 +136,18 @@ label start:
 
     "They reach into their jacket."
 
-    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     groupmate "I pulled out a knife AND a glock for this moment. You are finishing that report or you will be finished."
 
     mc "WHAT—"
 
-    # [TODO: play glock.mp3 several times in sequence]
-    # play sound glock
-    # play sound glock
-    # play sound glock
+    show groupmate shooting at npc_spot with None
 
+    play sound "audio/glock.ogg"
     "They open fire."
+    play sound "audio/glock.ogg"
+    queue sound "audio/glock.ogg"
 
     scene bg uw night with flash
 
@@ -234,31 +173,27 @@ label scene1_entrance:
 
     inner "WHY IS THAT MORE TERRIFYING THAN RUNNING"
 
-    show groupmate angry at npc_far with dissolve
+    show groupmate walking at npc_far with dissolve
 
     groupmate "(shouting) YOU'RE NOT RUNNING AWAY FROM THIS DEAD... LINE..."
 
     hide groupmate with dissolve
 
-    # [TODO ANIM: mc running]
     show mc running at player_spot with dissolve
 
     "You burst through the front doors of CSE2 and slam them shut."
     "You jam a chair under the handle."
 
-    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     "Through the glass: the groupmate stops. Stares at you."
     "Then they start walking around the building. It seems like they forgot their Husky Card? That's lucky."
 
     inner "That won't hold. I need to get upstairs before they find another way in."
-    # [TODO ANIM: mc thinking]
+    show mc thinking at player_spot with None
     inner "Let's see- if I can just finish my assignment... I need to get my laptop first. I think it was on the second floor somewhere?"
     inner "Wait, I forgot about that one bug with the light reflection. Shoot. Maybe I can see if there's anyone on the third floor that can help me?"
-    # [TODO ANIM: mc clutching_head]
     inner "And eduroam's down too! Shoot- I'll just take it one step at a time, I guess."
-    # [TODO ANIM: mc deep_breath]
     inner "But first... I need a way past these card readers. Undergrad ID won't cut it."
 
     hide mc with None
@@ -284,7 +219,7 @@ label scene1_stairwell_try_id:
 
     "You hold the upperclass-class Husky Card up to the reader."
 
-    # play sound door_beep
+    play sound "audio/door_beep.ogg"
 
     "GREEN."
 
@@ -319,7 +254,6 @@ label scene2_floor2:
 
     inner "Which lab was it..."
 
-    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     inner "202? 204? The one with the broken whiteboard? Shoot, I can't remember!"
@@ -400,7 +334,6 @@ label scene2_groupmate_breaks_in:
 
     groupmate "(from the stairwell) I CAN SMELL YOUR FEAR FROM HERE. AND YOU- oh god, when was the last time you took a shower?"
 
-    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     hide groupmate with None
@@ -436,7 +369,6 @@ label scene2_found_laptop:
 
     hide screen polymarket_ad
 
-    # [TODO ANIM: mc typing]
     show mc typing at player_spot with None
 
     "You grab the laptop and shove it in your bag."
@@ -497,7 +429,6 @@ label scene3_floor3:
     inner ".. how is he still here? You know what, never mind. Far be it from me to look a gift horse in the mouth."
     inner "If anyone can tell me how to salvage this project in two hours, it's him."
 
-    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     "You start down the corridor."
@@ -510,7 +441,6 @@ label scene3_floor3:
 
     groupmate "(barely above a whisper) ...I can hear you thinking."
 
-    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     hide groupmate with None
@@ -583,7 +513,6 @@ label scene3_seitz_advice:
 
     seitz "I would look at how you're using the light physics here and calculating the... "
 
-    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     mc "Okay. But what about this bug with the object not being linked to the-"
@@ -632,12 +561,12 @@ label scene3:
 
     "Prof. Seitz opens the office door."
 
-    # play sound dday  -- TODO: D-Day audio
+    play sound "audio/fnaf.mp3"
     seitz "Hey, is that a student who slacked off on his work running downstairs?"
 
     "The hallway goes silent, before a frenzied series of footsteps are heard thundering towards the lower floors."
 
-    # play sound crash  -- TODO: crash audio
+    play sound "audio/glock.ogg"
 
     show mc panicked at player_spot with dissolve
 
@@ -695,7 +624,6 @@ label scene4_roof_approach:
     "Cold air. The city spread out below. The UW campus quiet in every direction."
     "Your phone has three bars. Hopefully it'll be enough.."
 
-    # [TODO ANIM: mc typing]
     show mc typing at player_spot with None
 
     "You open the laptop. Find the Canvas submission portal."
@@ -708,7 +636,6 @@ label scene4_roof_approach:
 
     "The hatch behind you BURSTS open."
 
-    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     show groupmate angry at npc_spot with dissolve
@@ -804,7 +731,6 @@ label scene4_upload_climax:
     "100%%."
     "{b}SUBMISSION CONFIRMED — 5:59 AM{/b}"
 
-    # [TODO ANIM: mc celebrate]
     show mc celebrate at player_spot with None
 
     mc "IT'S IN."
@@ -928,7 +854,6 @@ label ending_true:
 
     "The light intensifies. The groupmate screams in awe, but cannot withstand Paul G. Allen's immense presence and vanishes."
 
-    # [TODO ANIM: mc dance, groupmate dance, paul dance]
     show mc celebrate at player_spot with None
 
     "Music plays from nowhere."
@@ -958,7 +883,8 @@ label scene_jumpscare:
 
     pause 0.5
 
-    show groupmate angry at jumpscare_rush with None
+    play sound "audio/jumpscare.ogg"
+    show groupmate jumpscare at jumpscare_rush with None
     pause 0.4
 
     scene black with jumpscare_flash

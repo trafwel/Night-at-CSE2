@@ -81,5 +81,5 @@ screen item_detail(item):
             spacing 12 xalign 0.5
             add item["icon"] xalign 0.5 zoom 2.0
             text item["name"] size 20 color "#ffffff" xalign 0.5
-            text item["desc"] size 15 color "#cccccc" xalign 0.5 text_align 0.5 layout "subtitle"
+            text item["desc"] size 15 color "#cccccc" xalign 0.5 text_align 0.5
             textbutton "Close" xalign 0.5 action Hide("item_detail")
