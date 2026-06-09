@@ -702,9 +702,9 @@ label scene4_roof_approach:
 
     inner "Come on. Come on."
 
-    "Upload: 12%..."
-    "28%..."
-    "51%..."
+    "Upload: 12%%..."
+    "28%%..."
+    "51%%..."
 
     "The hatch behind you BURSTS open."
 
@@ -773,14 +773,14 @@ label scene4_edge:
 label scene4_stand_ground:
 
     show mc typing at player_spot with dissolve
-    "You don't move. Just keep uploading. 74%..."
+    "You don't move. Just keep uploading. 74%%..."
     hide mc with None
 
     show groupmate normal at npc_spot with dissolve
     groupmate "..."
     "They stop. They're looking at the screen."
     groupmate "...Is that the report?"
-    mc "(not looking up) 79%."
+    mc "(not looking up) 79%%."
     groupmate "..."
     hide groupmate with None
 
@@ -793,15 +793,15 @@ label scene4_upload_climax:
 
     show mc typing at player_spot with dissolve
 
-    "83%..."
-    "91%..."
-    "99%..."
+    "83%%..."
+    "91%%..."
+    "99%%..."
 
     show groupmate normal at npc_spot with dissolve
 
     "The groupmate stands ten feet away. Watching."
 
-    "100%."
+    "100%%."
     "{b}SUBMISSION CONFIRMED — 5:59 AM{/b}"
 
     # [TODO ANIM: mc celebrate]
@@ -939,9 +939,9 @@ label ending_true:
     hide groupmate with dissolve
 
     scene black with fade
-    "[ TRUE END — Night at CSE2 ]"
-    "[ Everyone danced. The report got an A. Paul G. Allen ascended. ]"
-    "[ Group H · CSE 457 ]"
+    "[[ TRUE END — Night at CSE2 ]"
+    "[[ Everyone danced. The report got an A. Paul G. Allen ascended. ]"
+    "[[ Group H · CSE 457 ]"
     return
 
 
