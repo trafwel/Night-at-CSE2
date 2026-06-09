@@ -114,9 +114,9 @@ screen qte_cook():
                     textbutton "Just right"     action [SetScreenVariable("step",3), SetScreenVariable("correct", correct+1)]
             elif step == 3:
                 if correct >= 2:
-                    $ renpy.run(Return("success"))
+                    timer 0.01 action Return("success")
                 else:
-                    $ renpy.run(Return("fail"))
+                    timer 0.01 action Return("fail")
 
             bar:
                 value AnimatedValue(0, 10.0, 10.0)
