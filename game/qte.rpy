@@ -2,59 +2,84 @@
 ##  Night at CSE2 — QTE / Timed Challenge System
 ## ============================================================
 
-# ── Quick-Time Event: single dodge prompt ────────────────────
+# Key pool for dodge QTEs — spread across keyboard, no lookalike chars
+define QTE_KEYS = ["e", "f", "g", "r", "t", "v", "x", "z"]
+
+# ── Quick-Time Event: press the right key in time ─────────────
 # Usage:
-#   call screen qte_dodge(prompt="The groupmate turns the corner—", time_limit=3.0)
+#   call screen qte_dodge(prompt="The groupmate turns the corner—", time_limit=5.0)
 #   if _return == "success": ...
 #
-screen qte_dodge(prompt="DODGE!", time_limit=3.5):
+screen qte_dodge(prompt="DODGE!", time_limit=5.0):
     modal True
     zorder 50
 
+    # Pick a random key once when the screen opens
+    default qte_key = renpy.random.choice(QTE_KEYS)
+
+    # Timeout → fail
     timer time_limit action Return("fail")
+
+    # Key bindings: correct key = success, every other pool key = immediate fail
+    for k in QTE_KEYS:
+        if k == qte_key:
+            key k action Return("success")
+        else:
+            key k action Return("fail")
 
     # Red vignette border
     frame:
         xfill True yfill True
-        background "#cc000033"
+        background "#cc000044"
 
     frame:
         xalign 0.5
-        yalign 0.62
-        background Frame("#000000dd", 12, 12)
-        padding (50, 30)
+        yalign 0.55
+        background Frame("#0a0a0aee", 14, 14)
+        padding (60, 36)
 
         vbox:
-            spacing 18
+            spacing 16
             xalign 0.5
 
+            # Situation prompt
             text prompt:
-                size 26
-                color "#ffdddd"
+                size 24
+                color "#ffcccc"
                 xalign 0.5
                 text_align 0.5
 
-            # Countdown bar
+            # Big key display
+            frame:
+                xalign 0.5
+                background Frame("#cc2222cc", 10, 10)
+                padding (28, 18)
+
+                text "[qte_key!u]":
+                    size 80
+                    color "#ffffff"
+                    bold True
+                    xalign 0.5
+
+            text "PRESS NOW":
+                size 14
+                color "#ff8888"
+                xalign 0.5
+                text_align 0.5
+
+            # Countdown bar — drains left to right over time_limit seconds
             bar:
                 value AnimatedValue(0, time_limit, time_limit)
                 range time_limit
-                xsize 420
-                ysize 18
+                xsize 380
+                ysize 14
                 xalign 0.5
-                left_bar  Frame("#ff4444", 0, 0)
-                right_bar Frame("#441111", 0, 0)
+                left_bar  Frame("#ff3333", 0, 0)
+                right_bar Frame("#2a0000", 0, 0)
                 thumb      None
 
-            textbutton "  !! DODGE !!  ":
-                xalign 0.5
-                action Return("success")
-                text_style "qte_btn_text"
-                background "#cc2222"
-                hover_background "#ff4444"
-                padding (30, 14)
-
-style qte_btn_text:
-    size 24
+style qte_key_text:
+    size 80
     color "#ffffff"
     bold True
 
@@ -63,7 +88,7 @@ style qte_btn_text:
 # Label-based (screen variables were resetting mid-quiz on retry).
 # Usage:
 #   call qte_cook_run
-#   if _return == "success": ...
+#   cook_result == "success" or "fail" after return
 
 label qte_cook_run:
     $ cook_score = 0
@@ -108,9 +133,6 @@ label qte_cook_run:
 
 
 # ── Timed room-search screen ─────────────────────────────────
-# Shows "searching" flavor text while time ticks. Player picks rooms.
-# Not a true screen — just used for visual beat.
-
 screen searching_room(room_name):
     modal False
     zorder 30

@@ -21,12 +21,19 @@ define ITEMS = {
         "icon": "images/items/faculty_card.png",
         "desc": "Prof. ___ner's card. The name is scratched half off, but the stripe looks intact.",
     },
+    "chips": {
+        "id":   "chips",
+        "name": "BBQ Chips",
+        "icon": "images/items/chips.png",
+        "desc": "A bag of BBQ chips from the lobby vending machine. Still warm somehow.",
+    },
 }
 
-default inventory       = []
+default inventory         = []
 default has_upperclass_id = False
 default has_tendon_kohaku = False
 default has_faculty_card  = False
+default has_chips         = False
 
 init python:
     def pickup_item(item_id):
@@ -43,22 +50,22 @@ screen inventory_hud():
         xpos 12 ypos 12
         xpadding 10 ypadding 8
         background Frame("#000000bb", 6, 6)
-        minimum (90, 52)
 
         vbox:
-            spacing 4
+            spacing 6
             text "ITEMS" size 11 color "#aaaaaa" xalign 0.0
             if inventory:
                 hbox:
-                    spacing 6
+                    spacing 8
                     for item in inventory:
-                        imagebutton:
-                            idle  item["icon"]
-                            hover item["icon"]
-                            xysize (48, 31)
+                        button:
+                            xysize (48, 48)
+                            background None
+                            hover_background "#ffffff22"
                             action Show("item_detail", item=item)
                             hovered  Show("item_tooltip", name=item["name"])
                             unhovered Hide("item_tooltip")
+                            add item["icon"] xalign 0.5 yalign 0.5 zoom 0.75
             else:
                 text "—" size 13 color "#555555"
 
