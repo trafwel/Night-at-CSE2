@@ -1355,9 +1355,12 @@ image groupmate normal:
         pause 0.041667
         repeat
 
-## Chud — skeleton NPC
+## Chud — standing NPC (default lobby sprite)
+image chud idle = "images/chud_placeholder.png"
 
-image chud idle:
+## Chud — low-poly sleeping animation (from chudidle.mov, used on ??? click)
+
+image chud sleeping:
     block:
         "images/chud_idle/frame0001.png"
         pause 0.041667
@@ -1455,156 +1458,415 @@ image chud idle:
         pause 0.041667
         "images/chud_idle/frame0048.png"
         pause 0.041667
+        "images/chud_idle/frame0049.png"
+        pause 0.041667
+        "images/chud_idle/frame0050.png"
+        pause 0.041667
+        "images/chud_idle/frame0051.png"
+        pause 0.041667
+        "images/chud_idle/frame0052.png"
+        pause 0.041667
+        "images/chud_idle/frame0053.png"
+        pause 0.041667
+        "images/chud_idle/frame0054.png"
+        pause 0.041667
+        "images/chud_idle/frame0055.png"
+        pause 0.041667
+        "images/chud_idle/frame0056.png"
+        pause 0.041667
+        "images/chud_idle/frame0057.png"
+        pause 0.041667
+        "images/chud_idle/frame0058.png"
+        pause 0.041667
+        "images/chud_idle/frame0059.png"
+        pause 0.041667
+        "images/chud_idle/frame0060.png"
+        pause 0.041667
+        "images/chud_idle/frame0061.png"
+        pause 0.041667
+        "images/chud_idle/frame0062.png"
+        pause 0.041667
+        "images/chud_idle/frame0063.png"
+        pause 0.041667
+        "images/chud_idle/frame0064.png"
+        pause 0.041667
+        "images/chud_idle/frame0065.png"
+        pause 0.041667
+        "images/chud_idle/frame0066.png"
+        pause 0.041667
+        "images/chud_idle/frame0067.png"
+        pause 0.041667
+        "images/chud_idle/frame0068.png"
+        pause 0.041667
+        "images/chud_idle/frame0069.png"
+        pause 0.041667
+        "images/chud_idle/frame0070.png"
+        pause 0.041667
+        "images/chud_idle/frame0071.png"
+        pause 0.041667
+        "images/chud_idle/frame0072.png"
+        pause 0.041667
+        "images/chud_idle/frame0073.png"
+        pause 0.041667
+        "images/chud_idle/frame0074.png"
+        pause 0.041667
+        "images/chud_idle/frame0075.png"
+        pause 0.041667
+        "images/chud_idle/frame0076.png"
+        pause 0.041667
+        "images/chud_idle/frame0077.png"
+        pause 0.041667
+        "images/chud_idle/frame0078.png"
+        pause 0.041667
+        "images/chud_idle/frame0079.png"
+        pause 0.041667
+        "images/chud_idle/frame0080.png"
+        pause 0.041667
+        "images/chud_idle/frame0081.png"
+        pause 0.041667
+        "images/chud_idle/frame0082.png"
+        pause 0.041667
+        "images/chud_idle/frame0083.png"
+        pause 0.041667
         repeat
 
 image chud talking:
     block:
-        "images/chud_talking/frame0001.png"
+        "images/chud_idle/frame0001.png"
         pause 0.041667
-        "images/chud_talking/frame0002.png"
+        "images/chud_idle/frame0002.png"
         pause 0.041667
-        "images/chud_talking/frame0003.png"
+        "images/chud_idle/frame0003.png"
         pause 0.041667
-        "images/chud_talking/frame0004.png"
+        "images/chud_idle/frame0004.png"
         pause 0.041667
-        "images/chud_talking/frame0005.png"
+        "images/chud_idle/frame0005.png"
         pause 0.041667
-        "images/chud_talking/frame0006.png"
+        "images/chud_idle/frame0006.png"
         pause 0.041667
-        "images/chud_talking/frame0007.png"
+        "images/chud_idle/frame0007.png"
         pause 0.041667
-        "images/chud_talking/frame0008.png"
+        "images/chud_idle/frame0008.png"
         pause 0.041667
-        "images/chud_talking/frame0009.png"
+        "images/chud_idle/frame0009.png"
         pause 0.041667
-        "images/chud_talking/frame0010.png"
+        "images/chud_idle/frame0010.png"
         pause 0.041667
-        "images/chud_talking/frame0011.png"
+        "images/chud_idle/frame0011.png"
         pause 0.041667
-        "images/chud_talking/frame0012.png"
+        "images/chud_idle/frame0012.png"
         pause 0.041667
-        "images/chud_talking/frame0013.png"
+        "images/chud_idle/frame0013.png"
         pause 0.041667
-        "images/chud_talking/frame0014.png"
+        "images/chud_idle/frame0014.png"
         pause 0.041667
-        "images/chud_talking/frame0015.png"
+        "images/chud_idle/frame0015.png"
         pause 0.041667
-        "images/chud_talking/frame0016.png"
+        "images/chud_idle/frame0016.png"
         pause 0.041667
-        "images/chud_talking/frame0017.png"
+        "images/chud_idle/frame0017.png"
         pause 0.041667
-        "images/chud_talking/frame0018.png"
+        "images/chud_idle/frame0018.png"
         pause 0.041667
-        "images/chud_talking/frame0019.png"
+        "images/chud_idle/frame0019.png"
         pause 0.041667
-        "images/chud_talking/frame0020.png"
+        "images/chud_idle/frame0020.png"
         pause 0.041667
-        "images/chud_talking/frame0021.png"
+        "images/chud_idle/frame0021.png"
         pause 0.041667
-        "images/chud_talking/frame0022.png"
+        "images/chud_idle/frame0022.png"
         pause 0.041667
-        "images/chud_talking/frame0023.png"
+        "images/chud_idle/frame0023.png"
         pause 0.041667
-        "images/chud_talking/frame0024.png"
+        "images/chud_idle/frame0024.png"
         pause 0.041667
-        "images/chud_talking/frame0025.png"
+        "images/chud_idle/frame0025.png"
         pause 0.041667
-        "images/chud_talking/frame0026.png"
+        "images/chud_idle/frame0026.png"
         pause 0.041667
-        "images/chud_talking/frame0027.png"
+        "images/chud_idle/frame0027.png"
         pause 0.041667
-        "images/chud_talking/frame0028.png"
+        "images/chud_idle/frame0028.png"
         pause 0.041667
-        "images/chud_talking/frame0029.png"
+        "images/chud_idle/frame0029.png"
         pause 0.041667
-        "images/chud_talking/frame0030.png"
+        "images/chud_idle/frame0030.png"
         pause 0.041667
-        "images/chud_talking/frame0031.png"
+        "images/chud_idle/frame0031.png"
         pause 0.041667
-        "images/chud_talking/frame0032.png"
+        "images/chud_idle/frame0032.png"
         pause 0.041667
-        "images/chud_talking/frame0033.png"
+        "images/chud_idle/frame0033.png"
         pause 0.041667
-        "images/chud_talking/frame0034.png"
+        "images/chud_idle/frame0034.png"
         pause 0.041667
-        "images/chud_talking/frame0035.png"
+        "images/chud_idle/frame0035.png"
         pause 0.041667
-        "images/chud_talking/frame0036.png"
+        "images/chud_idle/frame0036.png"
+        pause 0.041667
+        "images/chud_idle/frame0037.png"
+        pause 0.041667
+        "images/chud_idle/frame0038.png"
+        pause 0.041667
+        "images/chud_idle/frame0039.png"
+        pause 0.041667
+        "images/chud_idle/frame0040.png"
+        pause 0.041667
+        "images/chud_idle/frame0041.png"
+        pause 0.041667
+        "images/chud_idle/frame0042.png"
+        pause 0.041667
+        "images/chud_idle/frame0043.png"
+        pause 0.041667
+        "images/chud_idle/frame0044.png"
+        pause 0.041667
+        "images/chud_idle/frame0045.png"
+        pause 0.041667
+        "images/chud_idle/frame0046.png"
+        pause 0.041667
+        "images/chud_idle/frame0047.png"
+        pause 0.041667
+        "images/chud_idle/frame0048.png"
+        pause 0.041667
+        "images/chud_idle/frame0049.png"
+        pause 0.041667
+        "images/chud_idle/frame0050.png"
+        pause 0.041667
+        "images/chud_idle/frame0051.png"
+        pause 0.041667
+        "images/chud_idle/frame0052.png"
+        pause 0.041667
+        "images/chud_idle/frame0053.png"
+        pause 0.041667
+        "images/chud_idle/frame0054.png"
+        pause 0.041667
+        "images/chud_idle/frame0055.png"
+        pause 0.041667
+        "images/chud_idle/frame0056.png"
+        pause 0.041667
+        "images/chud_idle/frame0057.png"
+        pause 0.041667
+        "images/chud_idle/frame0058.png"
+        pause 0.041667
+        "images/chud_idle/frame0059.png"
+        pause 0.041667
+        "images/chud_idle/frame0060.png"
+        pause 0.041667
+        "images/chud_idle/frame0061.png"
+        pause 0.041667
+        "images/chud_idle/frame0062.png"
+        pause 0.041667
+        "images/chud_idle/frame0063.png"
+        pause 0.041667
+        "images/chud_idle/frame0064.png"
+        pause 0.041667
+        "images/chud_idle/frame0065.png"
+        pause 0.041667
+        "images/chud_idle/frame0066.png"
+        pause 0.041667
+        "images/chud_idle/frame0067.png"
+        pause 0.041667
+        "images/chud_idle/frame0068.png"
+        pause 0.041667
+        "images/chud_idle/frame0069.png"
+        pause 0.041667
+        "images/chud_idle/frame0070.png"
+        pause 0.041667
+        "images/chud_idle/frame0071.png"
+        pause 0.041667
+        "images/chud_idle/frame0072.png"
+        pause 0.041667
+        "images/chud_idle/frame0073.png"
+        pause 0.041667
+        "images/chud_idle/frame0074.png"
+        pause 0.041667
+        "images/chud_idle/frame0075.png"
+        pause 0.041667
+        "images/chud_idle/frame0076.png"
+        pause 0.041667
+        "images/chud_idle/frame0077.png"
+        pause 0.041667
+        "images/chud_idle/frame0078.png"
+        pause 0.041667
+        "images/chud_idle/frame0079.png"
+        pause 0.041667
+        "images/chud_idle/frame0080.png"
+        pause 0.041667
+        "images/chud_idle/frame0081.png"
+        pause 0.041667
+        "images/chud_idle/frame0082.png"
+        pause 0.041667
+        "images/chud_idle/frame0083.png"
         pause 0.041667
         repeat
 
 image chud thinking:
     block:
-        "images/chud_thinking/frame0001.png"
+        "images/chud_idle/frame0001.png"
         pause 0.041667
-        "images/chud_thinking/frame0002.png"
+        "images/chud_idle/frame0002.png"
         pause 0.041667
-        "images/chud_thinking/frame0003.png"
+        "images/chud_idle/frame0003.png"
         pause 0.041667
-        "images/chud_thinking/frame0004.png"
+        "images/chud_idle/frame0004.png"
         pause 0.041667
-        "images/chud_thinking/frame0005.png"
+        "images/chud_idle/frame0005.png"
         pause 0.041667
-        "images/chud_thinking/frame0006.png"
+        "images/chud_idle/frame0006.png"
         pause 0.041667
-        "images/chud_thinking/frame0007.png"
+        "images/chud_idle/frame0007.png"
         pause 0.041667
-        "images/chud_thinking/frame0008.png"
+        "images/chud_idle/frame0008.png"
         pause 0.041667
-        "images/chud_thinking/frame0009.png"
+        "images/chud_idle/frame0009.png"
         pause 0.041667
-        "images/chud_thinking/frame0010.png"
+        "images/chud_idle/frame0010.png"
         pause 0.041667
-        "images/chud_thinking/frame0011.png"
+        "images/chud_idle/frame0011.png"
         pause 0.041667
-        "images/chud_thinking/frame0012.png"
+        "images/chud_idle/frame0012.png"
         pause 0.041667
-        "images/chud_thinking/frame0013.png"
+        "images/chud_idle/frame0013.png"
         pause 0.041667
-        "images/chud_thinking/frame0014.png"
+        "images/chud_idle/frame0014.png"
         pause 0.041667
-        "images/chud_thinking/frame0015.png"
+        "images/chud_idle/frame0015.png"
         pause 0.041667
-        "images/chud_thinking/frame0016.png"
+        "images/chud_idle/frame0016.png"
         pause 0.041667
-        "images/chud_thinking/frame0017.png"
+        "images/chud_idle/frame0017.png"
         pause 0.041667
-        "images/chud_thinking/frame0018.png"
+        "images/chud_idle/frame0018.png"
         pause 0.041667
-        "images/chud_thinking/frame0019.png"
+        "images/chud_idle/frame0019.png"
         pause 0.041667
-        "images/chud_thinking/frame0020.png"
+        "images/chud_idle/frame0020.png"
         pause 0.041667
-        "images/chud_thinking/frame0021.png"
+        "images/chud_idle/frame0021.png"
         pause 0.041667
-        "images/chud_thinking/frame0022.png"
+        "images/chud_idle/frame0022.png"
         pause 0.041667
-        "images/chud_thinking/frame0023.png"
+        "images/chud_idle/frame0023.png"
         pause 0.041667
-        "images/chud_thinking/frame0024.png"
+        "images/chud_idle/frame0024.png"
         pause 0.041667
-        "images/chud_thinking/frame0025.png"
+        "images/chud_idle/frame0025.png"
         pause 0.041667
-        "images/chud_thinking/frame0026.png"
+        "images/chud_idle/frame0026.png"
         pause 0.041667
-        "images/chud_thinking/frame0027.png"
+        "images/chud_idle/frame0027.png"
         pause 0.041667
-        "images/chud_thinking/frame0028.png"
+        "images/chud_idle/frame0028.png"
         pause 0.041667
-        "images/chud_thinking/frame0029.png"
+        "images/chud_idle/frame0029.png"
         pause 0.041667
-        "images/chud_thinking/frame0030.png"
+        "images/chud_idle/frame0030.png"
         pause 0.041667
-        "images/chud_thinking/frame0031.png"
+        "images/chud_idle/frame0031.png"
         pause 0.041667
-        "images/chud_thinking/frame0032.png"
+        "images/chud_idle/frame0032.png"
         pause 0.041667
-        "images/chud_thinking/frame0033.png"
+        "images/chud_idle/frame0033.png"
         pause 0.041667
-        "images/chud_thinking/frame0034.png"
+        "images/chud_idle/frame0034.png"
         pause 0.041667
-        "images/chud_thinking/frame0035.png"
+        "images/chud_idle/frame0035.png"
         pause 0.041667
-        "images/chud_thinking/frame0036.png"
+        "images/chud_idle/frame0036.png"
+        pause 0.041667
+        "images/chud_idle/frame0037.png"
+        pause 0.041667
+        "images/chud_idle/frame0038.png"
+        pause 0.041667
+        "images/chud_idle/frame0039.png"
+        pause 0.041667
+        "images/chud_idle/frame0040.png"
+        pause 0.041667
+        "images/chud_idle/frame0041.png"
+        pause 0.041667
+        "images/chud_idle/frame0042.png"
+        pause 0.041667
+        "images/chud_idle/frame0043.png"
+        pause 0.041667
+        "images/chud_idle/frame0044.png"
+        pause 0.041667
+        "images/chud_idle/frame0045.png"
+        pause 0.041667
+        "images/chud_idle/frame0046.png"
+        pause 0.041667
+        "images/chud_idle/frame0047.png"
+        pause 0.041667
+        "images/chud_idle/frame0048.png"
+        pause 0.041667
+        "images/chud_idle/frame0049.png"
+        pause 0.041667
+        "images/chud_idle/frame0050.png"
+        pause 0.041667
+        "images/chud_idle/frame0051.png"
+        pause 0.041667
+        "images/chud_idle/frame0052.png"
+        pause 0.041667
+        "images/chud_idle/frame0053.png"
+        pause 0.041667
+        "images/chud_idle/frame0054.png"
+        pause 0.041667
+        "images/chud_idle/frame0055.png"
+        pause 0.041667
+        "images/chud_idle/frame0056.png"
+        pause 0.041667
+        "images/chud_idle/frame0057.png"
+        pause 0.041667
+        "images/chud_idle/frame0058.png"
+        pause 0.041667
+        "images/chud_idle/frame0059.png"
+        pause 0.041667
+        "images/chud_idle/frame0060.png"
+        pause 0.041667
+        "images/chud_idle/frame0061.png"
+        pause 0.041667
+        "images/chud_idle/frame0062.png"
+        pause 0.041667
+        "images/chud_idle/frame0063.png"
+        pause 0.041667
+        "images/chud_idle/frame0064.png"
+        pause 0.041667
+        "images/chud_idle/frame0065.png"
+        pause 0.041667
+        "images/chud_idle/frame0066.png"
+        pause 0.041667
+        "images/chud_idle/frame0067.png"
+        pause 0.041667
+        "images/chud_idle/frame0068.png"
+        pause 0.041667
+        "images/chud_idle/frame0069.png"
+        pause 0.041667
+        "images/chud_idle/frame0070.png"
+        pause 0.041667
+        "images/chud_idle/frame0071.png"
+        pause 0.041667
+        "images/chud_idle/frame0072.png"
+        pause 0.041667
+        "images/chud_idle/frame0073.png"
+        pause 0.041667
+        "images/chud_idle/frame0074.png"
+        pause 0.041667
+        "images/chud_idle/frame0075.png"
+        pause 0.041667
+        "images/chud_idle/frame0076.png"
+        pause 0.041667
+        "images/chud_idle/frame0077.png"
+        pause 0.041667
+        "images/chud_idle/frame0078.png"
+        pause 0.041667
+        "images/chud_idle/frame0079.png"
+        pause 0.041667
+        "images/chud_idle/frame0080.png"
+        pause 0.041667
+        "images/chud_idle/frame0081.png"
+        pause 0.041667
+        "images/chud_idle/frame0082.png"
+        pause 0.041667
+        "images/chud_idle/frame0083.png"
         pause 0.041667
         repeat
+

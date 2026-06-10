@@ -15,7 +15,7 @@ image bg floor3       = im.Scale("images/second floor.jpeg",              1920, 
 image bg elevator     = im.Scale("images/elevator inside.jpeg",           1920, 1080)
 image bg seitz_office = im.Scale("images/seitz_room.jpeg",                1920, 1080)
 image bg bulletin     = im.Scale("images/bg_bulletin.png", 1920, 1080)
-image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof photo
+image bg roof         = im.Scale("images/roof.jpeg", 1920, 1080)
 
 # ── ANIMATIONS (definitions in mc_sprites.rpy / groupmate_sprites.rpy) ──
 # Assets live in game/images/anims/
@@ -236,8 +236,9 @@ image mc cooking  = "images/anim_frames_idle/frame0001.png"
 image mc typing   = "images/anim_frames_idle/frame0001.png"
 
 # ── NPC SPRITES ──────────────────────────────────────────────
+# chud idle/talking/thinking animations defined in groupmate_sprites.rpy
+# chud_sleeping animation used only during ??? interaction
 image seitz idle  = "images/seitz_placeholder.png"
-image chud idle   = "images/chud_placeholder.png"
 image paul idle   = "images/paul.png"
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
@@ -249,6 +250,12 @@ transform npc_spot:
 
 transform npc_far:
     xalign 0.57 yalign 1.0 zoom 0.62
+
+transform chud_spot:
+    xalign 0.80 yalign 0.85 zoom 0.82
+
+transform chud_far:
+    xalign 0.57 yalign 0.85 zoom 0.62
 
 transform center_stage:
     xalign 0.5 yalign .0 zoom 0.82
@@ -295,6 +302,20 @@ define audio.win7_startup   = "audio/windows-7-startup.mp3"
 define audio.ak47           = "audio/ak47-loud.mp3"
 define audio.mystery_sound  = "audio/67_SQlv2Xv.mp3"
 define audio.pkm_routes     = "audio/Routes 201 & 202 (Day)[Pokémon_ Diamond & Pearl].mp3"
+
+# ── MORE ASSETS SOUNDS ───────────────────────────────────────
+define audio.death_note_sus = "audio/death-note-light-yagami-is-sus.mp3"
+define audio.fortnite       = "audio/fortnite.mp3"
+define audio.joestar_run    = "audio/joestar-run.mp3"
+define audio.gambling       = "audio/lets-go-gambling.mp3"
+define audio.levelup        = "audio/levelup_sVAqjan.mp3"
+define audio.za_warudo      = "audio/za-warudo-stop-time-sound.mp3"
+
+# ── MORE FOLDER SOUNDS ──────────────────────────────────────
+define audio.furret_walk    = "audio/furretwalksong.ogg"
+define audio.yipee          = "audio/yippeeeeeeeeeeeeee.mp3"
+define audio.bp02           = "audio/bp02.mp3"
+define audio.sting          = "audio/tmp_7901-951678082.mp3"
 
 # ── CHARACTERS ───────────────────────────────────────────────
 define mc        = Character("You",            color="#87ceeb")
@@ -387,13 +408,16 @@ label start:
 
 label scene1_entrance:
 
+    play music audio.furret_walk volume 0.5 fadein 0.5
     scene bg exterior with dissolve
 
     "You sprint toward the CSE2 building."
+    play sound audio.joestar_run volume 0.5
     "Behind you, the groupmate {b}speedwalks{/b} in your direction. Menacingly."
 
     inner "WHY IS THAT MORE TERRIFYING THAN RUNNING"
 
+    stop music fadeout 1.0
     play sound audio.rezero_creepy volume 0.25
     show groupmate walking at npc_far with dissolve
 
@@ -409,7 +433,10 @@ label scene1_entrance:
     show mc panicked at player_spot with None
 
     "Through the glass: the groupmate stops. Stares at you."
+    play sound audio.death_note_sus volume 0.4
     "Then they start walking around the building. It seems like they forgot their Husky Card? That's lucky."
+
+    play music audio.furret_walk volume 0.5 fadein 0.5
 
     inner "That won't hold. I need to get upstairs before they find another way in."
     show mc thinking at player_spot with None
@@ -443,7 +470,9 @@ label scene1_stairwell_try_id:
 
     play sound "audio/door_beep.ogg"
 
+    play sound audio.bp02 volume 0.5
     "GREEN."
+    play sound audio.levelup volume 0.5
 
     mc "(quietly) Let's go."
 
@@ -472,6 +501,7 @@ label scene2_floor2:
     show mc panicked at player_spot with dissolve
 
     "Second floor. Research wing."
+    stop music fadeout 1.0
     "Your laptop is somewhere up here. You left it before everything went sideways. You curse the fact that you were scrolling on instagram reels for so long."
 
     inner "Which lab was it..."
@@ -564,9 +594,11 @@ label scene2_groupmate_breaks_in:
 
     inner "THEY GOT IN. HOW DID THEY GET IN."
 
+    play sound audio.za_warudo volume 0.4
     call screen qte_dodge("The groupmate rounds the corner—", 3.5)
 
     if _return == "success":
+        play sound audio.yipee volume 0.4
         "You press into a doorway. They walk past without seeing you."
         inner "Don't breathe. Don't breathe."
         "They continue down the hall. You hear a door bang."
@@ -592,9 +624,10 @@ label scene2_found_laptop:
     # show Polymarket popup ad as a joke
     show screen polymarket_ad
 
-    play sound audio.huh volume 0.5
+    play sound audio.gambling volume 0.4
     mc "...Why do I have a Polymarket tab open."
 
+    play sound audio.huh volume 0.5
     hide screen polymarket_ad
 
     show mc typing at player_spot with None
@@ -681,9 +714,11 @@ label scene3_floor3:
 
     hide mc with None
 
+    play sound audio.za_warudo volume 0.35
     call screen qte_dodge("The groupmate scans the corridor. Move NOW!", 4.0)
 
     if _return == "success":
+        play sound audio.yipee volume 0.35
         jump scene3_reach_seitz
     else:
         jump scene_jumpscare
@@ -733,6 +768,7 @@ label scene3_seitz_advice:
 
     "He looks at the laptop. Looks at you. Looks at the laptop again."
 
+    play sound audio.sting volume 0.4
     seitz "This... is not as bad as I expected."
 
     mc "Really?"
@@ -793,9 +829,9 @@ label scene3:
 
     "Prof. Seitz opens the office door."
 
-    play sound "audio/fnaf.mp3"
     seitz "Hey, is that a student who slacked off on his work running downstairs?"
 
+    play sound audio.bp02 volume 0.4
     "The hallway goes silent, before a frenzied series of footsteps are heard thundering towards the lower floors."
 
     play sound "audio/glock.ogg"
@@ -907,8 +943,10 @@ label scene4_hide_shed:
     inner "No. No, I need signal."
     hide mc with None
 
+    play sound audio.za_warudo volume 0.35
     call screen qte_dodge("The groupmate rounds the shed—", 3.0)
     if _return == "success":
+        play sound audio.yipee volume 0.35
         show mc hiding at player_spot with None
         "They walk past. You breathe."
         hide mc with None
@@ -924,8 +962,10 @@ label scene4_edge:
     inner "Yes! Come on—"
     hide mc with None
 
+    play sound audio.za_warudo volume 0.35
     call screen qte_dodge("They're right behind you—", 3.5)
     if _return == "success":
+        play sound audio.yipee volume 0.35
         "You sidestep. They slide past. Nearly go over the edge."
         show groupmate normal at npc_far with None
         groupmate "..."
@@ -972,6 +1012,7 @@ label scene4_upload_climax:
 
     show mc celebrate at player_spot with None
 
+    play sound audio.fortnite volume 0.4
     mc "IT'S IN."
 
     "A long silence."
@@ -1087,8 +1128,6 @@ label ending_true:
     paul "Tell him I said hello."
 
     "A pause."
-
-    play sound "audio/CELEBRATION.ogg"
 
     paul "The grade is an A."
 

@@ -120,7 +120,7 @@ label scene1_lobby_explore:
 
     scene bg lobby with dissolve
     show screen inventory_hud
-    show chud idle at npc_far with dissolve
+    show chud idle at chud_far with dissolve
 
     if not lobby_examined:
         play sound "audio/67_SQlv2Xv.mp3" volume 0.3
@@ -128,7 +128,7 @@ label scene1_lobby_explore:
         inner "There has to be something on this floor."
 
     label .loop:
-        show chud idle at npc_far
+        show chud idle at chud_far
         call screen lobby_hotspots
 
         if _return == "elevator":
@@ -271,6 +271,7 @@ label fl1_vending:
         if not has_chips:
             $ has_chips = True
             $ pickup_item("chips")
+            play sound "audio/bp02.mp3" volume 0.5
             inner "BBQ chips at 3 AM. This is fine."
         else:
             inner "I already have chips. One bag is enough. Probably."
@@ -368,10 +369,12 @@ label fl1_cook_challenge:
         play sound "audio/vine-boom.mp3" volume 0.5
         "The smell fills the entire floor."
 
+        play sound "audio/yippeeeeeeeeeeeeee.mp3" volume 0.4
         inner "I am built different."
         return
 
     else:
+        play sound "audio/tmp_7901-951678082.mp3" volume 0.3
         "You burn the tempura. The smoke alarm chirps twice and then goes back to sleep."
         inner "Never speak of this."
         return
@@ -401,14 +404,17 @@ label fl1_lab112:
 
 label fl1_chud_interact:
 
-    show chud talking at npc_spot with dissolve
+    # Show sleeping animation first, then wake up into talking
+    show chud sleeping at chud_spot with dissolve
+    pause 1.0
+    show chud talking at chud_spot with None
 
     if has_upperclass_id:
         # Already has the ID — brief dismissal
         chud "You still here? Go. Go go go."
         show mc idle at player_spot with dissolve
         mc "Right. Going."
-        show chud idle at npc_far with dissolve
+        show chud idle at chud_far with dissolve
         hide mc with dissolve
         return
 
@@ -444,21 +450,21 @@ label fl1_chud_interact:
         mc "...That's not healthy."
         chud "No it is not."
         "They sniff the air."
-        show chud thinking at npc_spot with None
+        show chud thinking at chud_spot with None
         chud "...You smoke?"
         mc "Occasionally."
-        show chud talking at npc_spot with None
+        show chud talking at chud_spot with None
         chud "I can smell it on you. I needed that. That's a real-world smell."
         chud "You trying to get upstairs?"
         mc "How did you—"
         chud "There are like four of you every other week."
         "They look at you properly."
-        show chud thinking at npc_spot with None
+        show chud thinking at chud_spot with None
         pause 0.6
-        show chud talking at npc_spot with None
+        show chud talking at chud_spot with None
         chud "I'd give you my card but... I'm starving. You got anything to eat?"
         mc "I'll see what I can find."
-        show chud thinking at npc_far with dissolve
+        show chud thinking at chud_far with dissolve
         hide mc with dissolve
         inner "They want food. The vending machine's right there, or the break room..."
         return
@@ -482,30 +488,30 @@ label fl1_chud_interact:
         chud "You find anything yet?"
         mc "Still looking."
         chud "I'll be here. Obviously."
-        show chud thinking at npc_far with dissolve
+        show chud thinking at chud_far with dissolve
         hide mc with dissolve
         return
 
 
 label fl1_chud_give_id:
 
-    show chud thinking at npc_spot with None
+    show chud thinking at chud_spot with None
     show mc idle at player_spot with None
 
     pause 0.5
-    show chud talking at npc_spot with None
+    show chud talking at chud_spot with None
     chud "You're trying to get to the third floor, aren't you."
     mc "How did you—"
     chud "There are like four of you down here at night every other week."
 
     "They unclip their ID and hold it out."
 
-    show chud thinking at npc_spot with None
+    show chud thinking at chud_spot with None
     pause 0.4
-    show chud talking at npc_spot with None
+    show chud talking at chud_spot with None
     chud "Gets you to floor two, maybe three if the reader's bugged."
     chud "Bring it back. Eventually."
-    show chud thinking at npc_spot with None
+    show chud thinking at chud_spot with None
 
     if has_tendon_kohaku:
         chud "Leave the food."
