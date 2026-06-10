@@ -362,9 +362,10 @@ label fl1_cook_challenge:
     if cook_result == "success":
         $ cooking_done = True
         $ has_tendon_kohaku = True
+        play sound "audio/lego.mp3"
         $ pickup_item("tendon_kohaku")
 
-        play sound "audio/sizzle.ogg"
+        play audio "audio/sizzle.ogg"
         "It comes together. Perfect crunch on the shrimp. Sauce ratio is {i}right{/i}."
         play sound "audio/vine-boom.mp3" volume 0.5
         "The smell fills the entire floor."

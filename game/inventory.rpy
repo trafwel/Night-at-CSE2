@@ -40,6 +40,7 @@ init python:
         item = ITEMS[item_id]
         if item not in renpy.store.inventory:
             renpy.store.inventory.append(item)
+            renpy.sound.play("audio/item.mp3", channel="sound")
 
 # ── Always-visible HUD (top-left) ────────────────────────────
 screen inventory_hud():

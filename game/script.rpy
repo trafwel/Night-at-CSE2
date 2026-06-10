@@ -993,7 +993,8 @@ label scene4_upload_climax:
     "The groupmate stands ten feet away. Watching."
 
     "100%%."
-    play sound audio.fnaf_6am volume 0.6
+    play sound "audio/twitch.mp3" volume 0.6
+    play audio audio.fnaf_6am volume 0.6
     "{b}SUBMISSION CONFIRMED — 5:59 AM{/b}"
 
     show mc celebrate at player_spot with None
@@ -1090,7 +1091,7 @@ label ending_true:
 
     "A beam of golden light splits the clouds."
 
-    play sound audio.rizz volume 0.5
+    play sound "audio/godis.mp3" volume 0.6
     show paul idle at paul_spot with dissolve
 
     paul "..."
