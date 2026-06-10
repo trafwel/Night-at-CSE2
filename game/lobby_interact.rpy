@@ -123,6 +123,7 @@ label scene1_lobby_explore:
     show chud idle at npc_far with dissolve
 
     if not lobby_examined:
+        play sound "audio/67_SQlv2Xv.mp3" volume 0.3
         "Card readers blink red on every door. You need a different kind of ID."
         inner "There has to be something on this floor."
 
@@ -364,6 +365,7 @@ label fl1_cook_challenge:
 
         play sound "audio/sizzle.ogg"
         "It comes together. Perfect crunch on the shrimp. Sauce ratio is {i}right{/i}."
+        play sound "audio/vine-boom.mp3" volume 0.5
         "The smell fills the entire floor."
 
         inner "I am built different."
@@ -515,6 +517,7 @@ label fl1_chud_give_id:
     $ has_upperclass_id = True
     $ pickup_item("upperclass_id")
 
+    play sound "audio/rizz-sound-effect.mp3" volume 0.4
     hide chud with dissolve
     hide mc with dissolve
 

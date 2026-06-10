@@ -238,7 +238,7 @@ image mc typing   = "images/anim_frames_idle/frame0001.png"
 # ── NPC SPRITES ──────────────────────────────────────────────
 image seitz idle  = "images/seitz_placeholder.png"
 image chud idle   = "images/chud_placeholder.png"
-image paul idle   = "images/paul.png"    # [TODO: 3D model]
+image paul idle   = "images/paul.png"
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
 transform player_spot:
@@ -275,6 +275,27 @@ define audio.sizzle      = "audio/sizzle.ogg"
 define audio.door_beep   = "audio/door_beep.ogg"
 define audio.fnaf        = "audio/fnaf.mp3"
 
+# ── NEW SOUNDS ───────────────────────────────────────────────
+define audio.vine_boom      = "audio/vine-boom.mp3"
+define audio.among_us       = "audio/among-us-role-reveal-sound.mp3"
+define audio.bone_crack     = "audio/bone-crack.mp3"
+define audio.chicken_scream = "audio/chicken-on-tree-screaming.mp3"
+define audio.explosion      = "audio/explosion-meme_dTCfAHs.mp3"
+define audio.faaah          = "audio/faaah.mp3"
+define audio.fnaf_6am       = "audio/five-nights-at-freddys-6-am.mp3"
+define audio.gta_theme      = "audio/gta-san-andreas-abertura-oficial.mp3"
+define audio.gunshot_one    = "audio/gunshot-one.mp3"
+define audio.among_us_yell  = "audio/guy-yelling-among-us-sound-effect.mp3"
+define audio.huh            = "audio/huh_37bAoRo.mp3"
+define audio.keyboard       = "audio/keyboard-meme.mp3"
+define audio.rezero_creepy  = "audio/rezero-kara-hajimeru-isekai-seikatsu-creepy-sound_mMcw4Ln.mp3"
+define audio.rizz           = "audio/rizz-sound-effect.mp3"
+define audio.the_rock       = "audio/the-rock-sound-effect.mp3"
+define audio.win7_startup   = "audio/windows-7-startup.mp3"
+define audio.ak47           = "audio/ak47-loud.mp3"
+define audio.mystery_sound  = "audio/67_SQlv2Xv.mp3"
+define audio.pkm_routes     = "audio/Routes 201 & 202 (Day)[Pokémon_ Diamond & Pearl].mp3"
+
 # ── CHARACTERS ───────────────────────────────────────────────
 define mc        = Character("You",            color="#87ceeb")
 define inner     = Character(None,             what_italic=True, what_color="#b8f0b8")
@@ -300,6 +321,7 @@ label start:
 
     "3:00 AM."
     play music "audio/scary-start.ogg"
+    play sound audio.gta_theme volume 0.3
     "You are walking home after a long day of doomscrolling."
     "The campus is empty. Quiet. The fountain is lit up. It's kind of nice actually."
 
@@ -318,6 +340,7 @@ label start:
 
     show groupmate normal at npc_spot with dissolve
 
+    play sound audio.among_us volume 0.5
     groupmate "THERE YOU ARE."
 
     mc "Oh no."
@@ -334,14 +357,17 @@ label start:
 
     groupmate "I pulled out a knife AND a glock for this moment. You are finishing that report or you will be finished."
 
+    play sound audio.vine_boom volume 0.6
     mc "WHAT—"
+    play sound audio.faaah volume 0.4
 
     show groupmate shooting at npc_spot with None
 
     play sound "audio/glock.ogg"
     "They open fire."
-    play sound "audio/glock.ogg"
+    play sound audio.ak47 volume 0.5
     queue sound "audio/glock.ogg"
+    queue sound audio.gunshot_one volume 0.6
 
     scene bg uw night with flash
 
@@ -368,6 +394,7 @@ label scene1_entrance:
 
     inner "WHY IS THAT MORE TERRIFYING THAN RUNNING"
 
+    play sound audio.rezero_creepy volume 0.25
     show groupmate walking at npc_far with dissolve
 
     groupmate "(shouting) YOU'RE NOT RUNNING AWAY FROM THIS DEAD... LINE..."
@@ -523,10 +550,12 @@ label scene2_groupmate_breaks_in:
 
     scene bg floor2 with red_flash
 
+    play sound audio.explosion volume 0.4
     "The stairwell door at the end of the hall SLAMS open."
 
     show groupmate angry at npc_far with None
 
+    play sound audio.chicken_scream volume 0.3
     groupmate "(from the stairwell) I CAN SMELL YOUR FEAR FROM HERE. AND YOU- oh god, when was the last time you took a shower?"
 
     show mc panicked at player_spot with None
@@ -557,9 +586,13 @@ label scene2_found_laptop:
 
     "There it is. Your laptop, sitting exactly where you left it. Still running Blender, too."
 
+    play sound audio.win7_startup volume 0.5
+    pause 0.8
+
     # show Polymarket popup ad as a joke
     show screen polymarket_ad
 
+    play sound audio.huh volume 0.5
     mc "...Why do I have a Polymarket tab open."
 
     hide screen polymarket_ad
@@ -628,12 +661,14 @@ label scene3_floor3:
 
     "You start down the corridor."
 
+    play sound audio.rezero_creepy volume 0.2
     "Then: the stairwell door behind you eases open."
 
     show groupmate normal at npc_far with None
 
     inner "HOW."
 
+    play sound audio.among_us_yell volume 0.25
     groupmate "(barely above a whisper) ...I can hear you thinking."
 
     show mc panicked at player_spot with None
@@ -702,12 +737,14 @@ label scene3_seitz_advice:
 
     mc "Really?"
 
+    play sound audio.vine_boom volume 0.5
     seitz "No, I was joking. Your thing isn't even rendering at all."
 
     "He leans over and starts pointing to random blocks of code."
 
     seitz "I would look at how you're using the light physics here and calculating the... "
 
+    play sound audio.keyboard volume 0.3
     show mc thinking at player_spot with None
 
     mc "Okay. But what about this bug with the object not being linked to the-"
@@ -773,6 +810,7 @@ label scene3:
 
     inner "How does he know that."
 
+    play sound audio.the_rock volume 0.5
     seitz "I have mysterious secrets."
 
     inner "What?"
@@ -823,6 +861,7 @@ label scene4_roof_approach:
 
     show mc typing at player_spot with None
 
+    play sound audio.keyboard volume 0.25
     "You open the laptop. Find the Canvas submission portal."
 
     inner "Come on. Come on."
@@ -831,12 +870,14 @@ label scene4_roof_approach:
     "28%%..."
     "51%%..."
 
+    play sound audio.explosion volume 0.5
     "The hatch behind you BURSTS open."
 
     show mc panicked at player_spot with None
 
     show groupmate angry at npc_spot with dissolve
 
+    play sound audio.vine_boom volume 0.5
     groupmate "END OF THE LINE. THE DEAD LINE. BY WHICH I MEAN YOU'RE DEAD."
 
     hide mc with None
@@ -926,6 +967,7 @@ label scene4_upload_climax:
     "The groupmate stands ten feet away. Watching."
 
     "100%%."
+    play sound audio.fnaf_6am volume 0.6
     "{b}SUBMISSION CONFIRMED — 5:59 AM{/b}"
 
     show mc celebrate at player_spot with None
@@ -1018,6 +1060,7 @@ label ending_true:
 
     "A beam of golden light splits the clouds."
 
+    play sound audio.rizz volume 0.5
     show paul idle at paul_spot with dissolve
 
     paul "..."
@@ -1057,6 +1100,7 @@ label ending_true:
 
     show mc celebrate at player_spot with None
 
+    play music audio.pkm_routes volume 0.7 fadein 1.0
     "Music plays from nowhere."
     "Everyone busts a move."
 
@@ -1089,12 +1133,15 @@ label scene_jumpscare:
 
     pause 0.5
 
+    play sound audio.bone_crack volume 0.6
+    pause 0.15
     play sound "audio/jumpscare.ogg"
     $ renpy.movie_cutscene("images/anims/fnaf.webm")
 
     scene black with jumpscare_flash
     pause 0.2
 
+    play sound audio.among_us_yell volume 0.5
     groupmate "FOUND YOU."
 
     pause 0.4
