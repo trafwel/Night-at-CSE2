@@ -143,7 +143,10 @@ label scene1_lobby_explore:
         elif _return == "chud":
             call fl1_chud_interact from _call_fl1_chud_interact
         elif _return == "exit":
-            jump scene1_stairwell_locked
+            if has_upperclass_id:
+                jump scene1_stairwell_try_id
+            else:
+                jump scene1_stairwell_locked
 
         jump .loop
 

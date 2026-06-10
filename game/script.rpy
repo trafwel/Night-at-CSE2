@@ -47,10 +47,10 @@ image mc hiding   = "images/mc_placeholder.png"
 image mc cooking  = "images/mc_placeholder.png"
 image mc typing   = "images/mc_placeholder.png"
 
-# ── NPC PLACEHOLDERS ─────────────────────────────────────────
-image seitz idle  = "images/seitz_placeholder.png"   # [TODO: 3D model]
-image chud idle   = "images/chud_placeholder.png"    # [TODO: 3D model]
-image paul idle   = "images/paul.png"    # [TODO: 3D model]
+# ── NPC SPRITES ──────────────────────────────────────────────
+image seitz idle  = "images/seitz_placeholder.png"
+image chud idle   = "images/chud_placeholder.png"
+image paul idle   = "images/paul_placeholder.png"    # [TODO: 3D model]
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
 transform player_spot:

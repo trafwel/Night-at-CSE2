@@ -1,32 +1,32 @@
-2026-06-10 00:34:52 UTC
+2026-06-10 16:59:48 UTC
 macOS-15.6-arm64-arm-64bit
 Ren'Py 8.5.3.26051504
 
-Early init took 30 ms
-Loading error handling took 15 ms
-Loading script took 94 ms
-Loading save slot metadata took 15 ms
+Early init took 23 ms
+Loading error handling took 12 ms
+Loading script took 127 ms
+Loading save slot metadata took 13 ms
 Loading persistent took 0 ms
-Running init code took 24 ms
-Loading analysis data took 2 ms
-Analyze and compile ATL took 20 ms
+Running init code took 20 ms
+Loading analysis data took 4 ms
+Analyze and compile ATL took 7 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/leontruong/Library/RenPy/backups/Night-at-CSE2':
-Dump and make backups took 16 ms
+Dump and make backups took 14 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 29 ms
+Initial gc took 14 ms
 DPI scale factor: 1.000000
 Creating interface object took 1 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 3 ms
-Save screen analysis took 5 ms
-Save pyanalysis took 5 ms
+Load screen analysis took 7 ms
+Analyze screens took 0 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
 Save bytecode took 0 ms
 Running _start took 0 ms
-Interface start took 355 ms
+Interface start took 597 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1710, 1107)
