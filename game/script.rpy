@@ -614,6 +614,8 @@ label scene4_elevator_route:
 
 label scene4_roof_approach:
 
+    play music "audio/action.ogg" fadein 0.8
+
     scene bg stairwell with dissolve
 
     show mc running at player_spot with dissolve
@@ -754,6 +756,8 @@ label scene4_upload_climax:
 
 label scene4_ending_branch:
 
+    stop music fadeout 1.0
+
     if has_tendon_kohaku:
         jump ending_true
     elif report_quality >= 3:
@@ -884,6 +888,8 @@ label ending_true:
 # ════════════════════════════════════════════════════════════
 
 label scene_jumpscare:
+
+    stop music fadeout 0.8
 
     scene bg hallway
 
