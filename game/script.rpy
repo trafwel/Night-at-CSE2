@@ -407,7 +407,6 @@ label start:
 
 label scene1_entrance:
 
-    play music audio.furret_walk volume 0.5 fadein 0.5
     scene bg exterior with dissolve
 
     "You sprint toward the CSE2 building."
@@ -888,13 +887,9 @@ label scene4_roof_approach:
 
     scene bg roof with dissolve
 
-    show mc idle at player_spot with dissolve
-
     "The roof."
     "Cold air. The city spread out below. The UW campus quiet in every direction."
     "Your phone has three bars. Hopefully it'll be enough.."
-
-    show mc typing at player_spot with None
 
     play sound audio.keyboard volume 0.25
     "You open the laptop. Find the Canvas submission portal."
@@ -993,8 +988,6 @@ label scene4_upload_climax:
 
     scene bg roof with dissolve
 
-    show mc typing at player_spot with dissolve
-
     "83%%..."
     "91%%..."
     "99%%..."
@@ -1015,6 +1008,7 @@ label scene4_upload_climax:
 
     stop music fadeout 1.0
     "A long silence."
+    play sound "audio/fortnite.mp3" volume 0.6
 
     groupmate "..."
 
