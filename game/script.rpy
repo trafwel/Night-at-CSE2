@@ -313,7 +313,6 @@ define audio.za_warudo      = "audio/za-warudo-stop-time-sound.mp3"
 
 # ── MORE FOLDER SOUNDS ──────────────────────────────────────
 define audio.furret_walk    = "audio/furretwalksong.ogg"
-define audio.yipee          = "audio/yippeeeeeeeeeeeeee.mp3"
 define audio.bp02           = "audio/bp02.mp3"
 define audio.sting          = "audio/tmp_7901-951678082.mp3"
 
@@ -598,7 +597,6 @@ label scene2_groupmate_breaks_in:
     call screen qte_dodge("The groupmate rounds the corner—", 3.5)
 
     if _return == "success":
-        play sound audio.yipee volume 0.4
         "You press into a doorway. They walk past without seeing you."
         inner "Don't breathe. Don't breathe."
         "They continue down the hall. You hear a door bang."
@@ -718,7 +716,6 @@ label scene3_floor3:
     call screen qte_dodge("The groupmate scans the corridor. Move NOW!", 4.0)
 
     if _return == "success":
-        play sound audio.yipee volume 0.35
         jump scene3_reach_seitz
     else:
         jump scene_jumpscare
@@ -737,6 +734,7 @@ label scene3_reach_seitz:
     "You knock harder."
 
     show seitz idle at npc_spot with dissolve
+    play sound "audio/i-am-steve.mp3" volume 0.7
 
     seitz "Who is it now?"
 
@@ -827,6 +825,7 @@ label scene3:
 
     show seitz idle at npc_spot with dissolve
 
+    play sound "audio/minecraft-door-sound-effect.mp3" volume 0.6
     "Prof. Seitz opens the office door."
 
     seitz "Hey, is that a student who slacked off on his work running downstairs?"
@@ -946,7 +945,6 @@ label scene4_hide_shed:
     play sound audio.za_warudo volume 0.35
     call screen qte_dodge("The groupmate rounds the shed—", 3.0)
     if _return == "success":
-        play sound audio.yipee volume 0.35
         show mc hiding at player_spot with None
         "They walk past. You breathe."
         hide mc with None
@@ -965,7 +963,6 @@ label scene4_edge:
     play sound audio.za_warudo volume 0.35
     call screen qte_dodge("They're right behind you—", 3.5)
     if _return == "success":
-        play sound audio.yipee volume 0.35
         "You sidestep. They slide past. Nearly go over the edge."
         show groupmate normal at npc_far with None
         groupmate "..."
@@ -1014,7 +1011,9 @@ label scene4_upload_climax:
 
     play sound audio.fortnite volume 0.4
     mc "IT'S IN."
+    play sound "audio/samsungnotif.mp3" volume 0.5
 
+    stop music fadeout 1.0
     "A long silence."
 
     groupmate "..."

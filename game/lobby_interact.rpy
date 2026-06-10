@@ -369,7 +369,6 @@ label fl1_cook_challenge:
         play sound "audio/vine-boom.mp3" volume 0.5
         "The smell fills the entire floor."
 
-        play sound "audio/yippeeeeeeeeeeeeee.mp3" volume 0.4
         inner "I am built different."
         return
 
