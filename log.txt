@@ -1,31 +1,32 @@
-2026-06-09 23:38:44 UTC
+2026-06-10 00:34:52 UTC
 macOS-15.6-arm64-arm-64bit
 Ren'Py 8.5.3.26051504
 
-Early init took 26 ms
-Loading error handling took 14 ms
-Loading script took 52 ms
-Loading save slot metadata took 12 ms
+Early init took 30 ms
+Loading error handling took 15 ms
+Loading script took 94 ms
+Loading save slot metadata took 15 ms
 Loading persistent took 0 ms
-Running init code took 19 ms
+Running init code took 24 ms
 Loading analysis data took 2 ms
-Analyze and compile ATL took 1 ms
-Reloading save slot metadata took 4 ms
-Dump and make backups took 14 ms
+Analyze and compile ATL took 20 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/leontruong/Library/RenPy/backups/Night-at-CSE2':
+Dump and make backups took 16 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 13 ms
+Initial gc took 29 ms
 DPI scale factor: 1.000000
-Creating interface object took 0 ms
+Creating interface object took 1 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 7 ms
-Analyze screens took 0 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 3 ms
+Save screen analysis took 5 ms
+Save pyanalysis took 5 ms
 Save bytecode took 0 ms
 Running _start took 0 ms
-Interface start took 207 ms
+Interface start took 355 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1710, 1107)
@@ -39,7 +40,3 @@ Screen sizes: virtual=(1920, 1080) physical=(1710, 1069) drawable=(3420, 2138)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1710, 1069) drawable=(3420, 2138)
 Maximum texture size: 4096x4096
-Cleaning stores took 0 ms
-Load screen analysis took 14 ms
-Analyze screens took 0 ms
-Running _start took 2 ms
