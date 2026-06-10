@@ -63,7 +63,12 @@ transform npc_far:
     xalign 0.78 yalign 1.0 zoom 0.62
 
 transform center_stage:
-    xalign 0.5 yalign 1.0 zoom 0.82
+    xalign 0.5 yalign .0 zoom 0.82
+
+transform paul_spot:
+    xpos 0.5 ypos 0.32
+    xanchor 0.5 yanchor 0.5
+    zoom 2
 
 # ── TRANSITIONS ──────────────────────────────────────────────
 define flash           = Fade(0.1,  0.0, 0.4, color="#ffffff")
@@ -106,6 +111,7 @@ label start:
     scene black with fade
 
     "3:00 AM."
+    play music "audio/scary-start.ogg"
     "You are walking home after a long day of doomscrolling."
     "The campus is empty. Quiet. The fountain is lit up. It's kind of nice actually."
 
@@ -156,6 +162,7 @@ label start:
     hide mc with None
     hide groupmate with None
 
+    stop music fadeout 1.0
     jump scene1_entrance
 
 
@@ -819,7 +826,7 @@ label ending_true:
 
     "A beam of golden light splits the clouds."
 
-    show paul idle at center_stage with dissolve
+    show paul idle at paul_spot with dissolve
 
     paul "..."
 
@@ -845,6 +852,8 @@ label ending_true:
     paul "Tell him I said hello."
 
     "A pause."
+
+    play sound "audio/CELEBRATION.ogg"
 
     paul "The grade is an A."
 
