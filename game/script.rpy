@@ -627,7 +627,6 @@ label scene2_found_laptop:
     play sound audio.huh volume 0.5
     hide screen polymarket_ad
 
-    show mc typing at player_spot with None
 
     "You grab the laptop and shove it in your bag."
     inner "Floor 3. It'll buy me some time, and Seitz's office is there. Maybe he's still there, somehow?"
@@ -760,7 +759,6 @@ label scene3_seitz_advice:
 
     scene bg seitz_office with dissolve
 
-    show mc typing at player_spot with dissolve
     show seitz idle at npc_spot with dissolve
 
     "He looks at the laptop. Looks at you. Looks at the laptop again."
@@ -932,7 +930,6 @@ label scene4_hiding_sequence:
 
 label scene4_hide_shed:
 
-    show mc hiding at player_spot with dissolve
     "You duck behind the maintenance shed. Signal drops to one bar."
     inner "No. No, I need signal."
     hide mc with None
@@ -940,7 +937,6 @@ label scene4_hide_shed:
     play sound audio.za_warudo volume 0.35
     call screen qte_dodge("The groupmate rounds the shed—", 3.0)
     if _return == "success":
-        show mc hiding at player_spot with None
         "They walk past. You breathe."
         hide mc with None
         jump scene4_upload_climax
