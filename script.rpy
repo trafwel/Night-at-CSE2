@@ -6,257 +6,46 @@
 # ── BACKGROUNDS ──────────────────────────────────────────────
 image bg uw night     = im.Scale("uw night.jpg",                       1920, 1080)
 image bg exterior     = im.Scale("cseoutside.jpg",                     1920, 1080)
-image bg lobby        = im.Scale("images/cse lobby.jpeg",              1920, 1080)
-image bg hallway      = im.Scale("images/cse lobby.jpeg",              1920, 1080)
-image bg stairwell    = im.Scale("images/cse building 1st floor inside.jpg", 1920, 1080)
-image bg floor2       = im.Scale("images/second floor.jpeg",              1920, 1080)
-image bg floor2_lab   = im.Scale("images/second floor.jpeg",              1920, 1080)
-image bg floor3       = im.Scale("images/second floor.jpeg",              1920, 1080)
-image bg elevator     = im.Scale("images/elevator inside.jpeg",           1920, 1080)
-image bg seitz_office = im.Scale("images/seitz_room.jpeg",                1920, 1080)
-image bg bulletin     = im.Scale("images/bg_bulletin.png", 1920, 1080)
+image bg lobby        = im.Scale("cse building 1st floor inside.jpg",  1920, 1080)
+image bg hallway      = im.Scale("cse building 1st floor inside.jpg",  1920, 1080)
+image bg stairwell    = Solid("#080808")
+image bg floor2       = Solid("#0a0c18")   # TODO: replace with photo of floor 2 hallway
+image bg floor2_lab   = Solid("#0c0e20")   # TODO: replace with photo of a lab room
+image bg floor3       = Solid("#0c0a14")   # TODO: replace with photo of floor 3 hallway
+image bg seitz_office = Solid("#10080a")   # TODO: replace with photo of office door
 image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof photo
 
-# ── ANIMATIONS (definitions in mc_sprites.rpy / groupmate_sprites.rpy) ──
-# Assets live in game/images/anims/
-#
-# MC — WebM (ready):
-#   mc thinking   → MC_Thinking.webm
-#   mc shocked    → MC_Shocked.webm
-#   mc panicked   → MC_Scared.webm
-#   mc running    → jump.webm
-#   mc celebrate  → MC_Happy.webm
-#
-# MC — placeholder PNG (TODO: add WebM):
-#   mc idle, mc hiding, mc cooking, mc typing
-#   mc clutching_head, mc deep_breath
-#
-# GROUPMATE — WebM (ready):
-#   groupmate angry      → angry.webm
-#   groupmate walking    → walking.webm
-#   groupmate shooting   → gunshooting.webm
-#   groupmate jumpscare  → fnaf.webm
-#   groupmate punch      → punching.webm  (unused in script)
-#
-# GROUPMATE — PNG ATL (ready):
-#   groupmate normal     → images/groupmate_idle/
-#
-# GROUPMATE — TODO: dance anim (true ending)
-#
-# Placeholder PNGs still used below for MC states without a WebM yet.
-image mc idle:
-    block:
-        "images/mc_idle_frames/frame0001.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0002.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0003.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0004.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0005.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0006.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0007.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0008.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0009.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0010.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0011.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0012.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0013.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0014.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0015.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0016.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0017.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0018.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0019.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0020.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0021.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0022.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0023.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0024.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0025.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0026.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0027.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0028.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0029.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0030.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0031.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0032.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0033.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0034.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0035.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0036.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0037.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0038.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0039.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0040.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0041.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0042.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0043.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0044.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0045.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0046.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0047.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0048.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0049.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0050.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0051.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0052.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0053.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0054.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0055.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0056.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0057.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0058.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0059.png"
-        pause 0.041667
-        "images/mc_idle_frames/frame0060.png"
-        pause 0.041667
-        repeat
+# ── MC ANIMATION STATES ──────────────────────────────────────
+# Each state is a placeholder until the real 3D animation is rendered.
+# To add a new anim: render it from Blender, add frames to images/mc_<state>/,
+# then replace the line below with an ATL frame definition (like groupmate_sprites.rpy).
+image mc idle     = "images/mc_placeholder.png"    # [TODO ANIM: neutral stand]
+image mc thinking = "images/mc_placeholder.png"    # [TODO ANIM: hand on chin, looking up]
+image mc shocked  = "images/mc_placeholder.png"    # [TODO ANIM: jump back, wide stance]
+image mc panicked = "images/mc_placeholder.png"    # [TODO ANIM: head turning, sweating]
+image mc running  = "images/mc_placeholder.png"    # [TODO ANIM: running cycle]
+image mc hiding   = "images/mc_placeholder.png"    # [TODO ANIM: crouched against wall]
+image mc cooking  = "images/mc_placeholder.png"    # [TODO ANIM: stirring/plating gesture]
+image mc typing   = "images/mc_placeholder.png"    # [TODO ANIM: typing at keyboard]
+image mc celebrate = "images/mc_placeholder.png"   # [TODO ANIM: arms up, dancing]
 
-image mc hiding:
-    block:
-        "images/anim_frames_scream/frame0001.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0002.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0003.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0004.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0005.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0006.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0007.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0008.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0009.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0010.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0011.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0012.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0013.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0014.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0015.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0016.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0017.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0018.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0019.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0020.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0021.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0022.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0023.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0024.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0025.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0026.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0027.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0028.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0029.png"
-        pause 0.041667
-        "images/anim_frames_scream/frame0030.png"
-        pause 0.041667
-        repeat
-
-image mc cooking  = "images/anim_frames_idle/frame0001.png"
-image mc typing   = "images/anim_frames_idle/frame0001.png"
-
-# ── NPC SPRITES ──────────────────────────────────────────────
-image seitz idle  = "images/seitz_placeholder.png"
-image chud idle   = "images/chud_placeholder.png"
+# ── NPC PLACEHOLDERS ─────────────────────────────────────────
+image seitz idle  = "images/seitz_placeholder.png"   # [TODO: 3D model]
+image chud idle   = "images/chud_placeholder.png"    # [TODO: 3D model]
 image paul idle   = "images/paul.png"    # [TODO: 3D model]
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
 transform player_spot:
-    xalign 0.12 ypos 0.8 yanchor 1.0 zoom 0.74
+    xalign 0.12 yalign 1.0 zoom 0.82
 
 transform npc_spot:
-    xalign 0.80 yalign 1.0 zoom 0.82
+    xalign 0.82 yalign 1.0 zoom 0.82
 
 transform npc_far:
-    xalign 0.57 yalign 1.0 zoom 0.62
+    xalign 0.78 yalign 1.0 zoom 0.62
 
 transform center_stage:
-    xalign 0.5 yalign .0 zoom 0.82
-
-transform paul_spot:
-    xpos 0.5 ypos 0.32
-    xanchor 0.5 yanchor 0.5
-    zoom 2
+    xalign 0.5 yalign 1.0 zoom 0.82
 
 # ── TRANSITIONS ──────────────────────────────────────────────
 define flash           = Fade(0.1,  0.0, 0.4, color="#ffffff")
@@ -268,12 +57,12 @@ transform jumpscare_rush:
     xalign -0.35 yalign 0.85 zoom 0.9 alpha 1.0
     easeout 0.30 xalign 0.5 yalign 0.5 zoom 3.6
 
-# ── AUDIO (game/audio/) ──────────────────────────────────────
-define audio.glock       = "audio/glock.ogg"
-define audio.jumpscare   = "audio/jumpscare.ogg"
-define audio.sizzle      = "audio/sizzle.ogg"
-define audio.door_beep   = "audio/door_beep.ogg"
-define audio.fnaf        = "audio/fnaf.mp3"
+# ── AUDIO ────────────────────────────────────────────────────
+# TODO: add audio files to game/audio/
+define audio.glock       = "audio/glock.mp3"       # TODO: gunshot sfx
+define audio.dday        = "audio/dday.mp3"         # TODO: D-Day / Seitz theme
+define audio.sizzle      = "audio/sizzle.mp3"       # TODO: cooking sfx
+define audio.door_beep   = "audio/door_beep.mp3"    # TODO: card reader beep
 
 # ── CHARACTERS ───────────────────────────────────────────────
 define mc        = Character("You",            color="#87ceeb")
@@ -299,7 +88,6 @@ label start:
     scene black with fade
 
     "3:00 AM."
-    play music "audio/scary-start.ogg"
     "You are walking home after a long day of doomscrolling."
     "The campus is empty. Quiet. The fountain is lit up. It's kind of nice actually."
 
@@ -314,6 +102,7 @@ label start:
 
     "And then:"
 
+    # [TODO ANIM: mc shocked]
     show mc shocked at player_spot with None
 
     show groupmate normal at npc_spot with dissolve
@@ -330,18 +119,19 @@ label start:
 
     "They reach into their jacket."
 
+    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     groupmate "I pulled out a knife AND a glock for this moment. You are finishing that report or you will be finished."
 
     mc "WHAT—"
 
-    show groupmate shooting at npc_spot with None
+    # [TODO: play glock.mp3 several times in sequence]
+    # play sound glock
+    # play sound glock
+    # play sound glock
 
-    play sound "audio/glock.ogg"
     "They open fire."
-    play sound "audio/glock.ogg"
-    queue sound "audio/glock.ogg"
 
     scene bg uw night with flash
 
@@ -350,7 +140,6 @@ label start:
     hide mc with None
     hide groupmate with None
 
-    stop music fadeout 1.0
     jump scene1_entrance
 
 
@@ -368,27 +157,31 @@ label scene1_entrance:
 
     inner "WHY IS THAT MORE TERRIFYING THAN RUNNING"
 
-    show groupmate walking at npc_far with dissolve
+    show groupmate angry at npc_far with dissolve
 
     groupmate "(shouting) YOU'RE NOT RUNNING AWAY FROM THIS DEAD... LINE..."
 
     hide groupmate with dissolve
 
+    # [TODO ANIM: mc running]
     show mc running at player_spot with dissolve
 
     "You burst through the front doors of CSE2 and slam them shut."
     "You jam a chair under the handle."
 
+    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     "Through the glass: the groupmate stops. Stares at you."
     "Then they start walking around the building. It seems like they forgot their Husky Card? That's lucky."
 
     inner "That won't hold. I need to get upstairs before they find another way in."
-    show mc thinking at player_spot with None
+    # [TODO ANIM: mc thinking]
     inner "Let's see- if I can just finish my assignment... I need to get my laptop first. I think it was on the second floor somewhere?"
     inner "Wait, I forgot about that one bug with the light reflection. Shoot. Maybe I can see if there's anyone on the third floor that can help me?"
+    # [TODO ANIM: mc clutching_head]
     inner "And eduroam's down too! Shoot- I'll just take it one step at a time, I guess."
+    # [TODO ANIM: mc deep_breath]
     inner "But first... I need a way past these card readers. Undergrad ID won't cut it."
 
     hide mc with None
@@ -414,7 +207,7 @@ label scene1_stairwell_try_id:
 
     "You hold the upperclass-class Husky Card up to the reader."
 
-    play sound "audio/door_beep.ogg"
+    # play sound door_beep
 
     "GREEN."
 
@@ -449,6 +242,7 @@ label scene2_floor2:
 
     inner "Which lab was it..."
 
+    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     inner "202? 204? The one with the broken whiteboard? Shoot, I can't remember!"
@@ -529,6 +323,7 @@ label scene2_groupmate_breaks_in:
 
     groupmate "(from the stairwell) I CAN SMELL YOUR FEAR FROM HERE. AND YOU- oh god, when was the last time you took a shower?"
 
+    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     hide groupmate with None
@@ -564,6 +359,7 @@ label scene2_found_laptop:
 
     hide screen polymarket_ad
 
+    # [TODO ANIM: mc typing]
     show mc typing at player_spot with None
 
     "You grab the laptop and shove it in your bag."
@@ -624,6 +420,7 @@ label scene3_floor3:
     inner ".. how is he still here? You know what, never mind. Far be it from me to look a gift horse in the mouth."
     inner "If anyone can tell me how to salvage this project in two hours, it's him."
 
+    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     "You start down the corridor."
@@ -636,6 +433,7 @@ label scene3_floor3:
 
     groupmate "(barely above a whisper) ...I can hear you thinking."
 
+    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     hide groupmate with None
@@ -708,6 +506,7 @@ label scene3_seitz_advice:
 
     seitz "I would look at how you're using the light physics here and calculating the... "
 
+    # [TODO ANIM: mc thinking]
     show mc thinking at player_spot with None
 
     mc "Okay. But what about this bug with the object not being linked to the-"
@@ -756,12 +555,12 @@ label scene3:
 
     "Prof. Seitz opens the office door."
 
-    play sound "audio/fnaf.mp3"
+    # play sound dday  -- TODO: D-Day audio
     seitz "Hey, is that a student who slacked off on his work running downstairs?"
 
     "The hallway goes silent, before a frenzied series of footsteps are heard thundering towards the lower floors."
 
-    play sound "audio/glock.ogg"
+    # play sound crash  -- TODO: crash audio
 
     show mc panicked at player_spot with dissolve
 
@@ -790,7 +589,7 @@ label scene3:
 
 label scene4_elevator_route:
 
-    scene bg elevator with dissolve
+    scene bg stairwell with dissolve
 
     "You take the elevator and wait in your brief moment of peace."
 
@@ -801,8 +600,6 @@ label scene4_elevator_route:
 
 
 label scene4_roof_approach:
-
-    play music "audio/action.ogg" fadein 0.8
 
     scene bg stairwell with dissolve
 
@@ -821,18 +618,20 @@ label scene4_roof_approach:
     "Cold air. The city spread out below. The UW campus quiet in every direction."
     "Your phone has three bars. Hopefully it'll be enough.."
 
+    # [TODO ANIM: mc typing]
     show mc typing at player_spot with None
 
     "You open the laptop. Find the Canvas submission portal."
 
     inner "Come on. Come on."
 
-    "Upload: 12%%..."
-    "28%%..."
-    "51%%..."
+    "Upload: 12%..."
+    "28%..."
+    "51%..."
 
     "The hatch behind you BURSTS open."
 
+    # [TODO ANIM: mc panicked]
     show mc panicked at player_spot with None
 
     show groupmate angry at npc_spot with dissolve
@@ -897,14 +696,14 @@ label scene4_edge:
 label scene4_stand_ground:
 
     show mc typing at player_spot with dissolve
-    "You don't move. Just keep uploading. 74%%..."
+    "You don't move. Just keep uploading. 74%..."
     hide mc with None
 
     show groupmate normal at npc_spot with dissolve
     groupmate "..."
     "They stop. They're looking at the screen."
     groupmate "...Is that the report?"
-    mc "(not looking up) 79%%."
+    mc "(not looking up) 79%."
     groupmate "..."
     hide groupmate with None
 
@@ -917,17 +716,18 @@ label scene4_upload_climax:
 
     show mc typing at player_spot with dissolve
 
-    "83%%..."
-    "91%%..."
-    "99%%..."
+    "83%..."
+    "91%..."
+    "99%..."
 
     show groupmate normal at npc_spot with dissolve
 
     "The groupmate stands ten feet away. Watching."
 
-    "100%%."
+    "100%."
     "{b}SUBMISSION CONFIRMED — 5:59 AM{/b}"
 
+    # [TODO ANIM: mc celebrate]
     show mc celebrate at player_spot with None
 
     mc "IT'S IN."
@@ -943,8 +743,6 @@ label scene4_upload_climax:
 
 
 label scene4_ending_branch:
-
-    stop music fadeout 1.0
 
     if has_tendon_kohaku:
         jump ending_true
@@ -979,8 +777,8 @@ label ending_neutral:
     hide groupmate with dissolve
 
     scene black with fade
-    "[[ END — Night at CSE2 ]"
-    "[[ Group H · CSE 457 ]"
+    "[ END — Night at CSE2 ]"
+    "[ Group H · CSE 457 ]"
     return
 
 
@@ -1005,8 +803,8 @@ label ending_good:
     hide groupmate with dissolve
 
     scene black with fade
-    "[[ GOOD END — Night at CSE2 ]"
-    "[[ Group H · CSE 457 ]"
+    "[ GOOD END — Night at CSE2 ]"
+    "[ Group H · CSE 457 ]"
     return
 
 
@@ -1018,7 +816,7 @@ label ending_true:
 
     "A beam of golden light splits the clouds."
 
-    show paul idle at paul_spot with dissolve
+    show paul idle at center_stage with dissolve
 
     paul "..."
 
@@ -1045,8 +843,6 @@ label ending_true:
 
     "A pause."
 
-    play sound "audio/CELEBRATION.ogg"
-
     paul "The grade is an A."
 
     groupmate "What? How- wha-"
@@ -1055,6 +851,7 @@ label ending_true:
 
     "The light intensifies. The groupmate screams in awe, but cannot withstand Paul G. Allen's immense presence and vanishes."
 
+    # [TODO ANIM: mc dance, groupmate dance, paul dance]
     show mc celebrate at player_spot with None
 
     "Music plays from nowhere."
@@ -1065,9 +862,9 @@ label ending_true:
     hide groupmate with dissolve
 
     scene black with fade
-    "[[ TRUE END — Night at CSE2 ]"
-    "[[ Everyone danced. The report got an A. Paul G. Allen ascended. ]"
-    "[[ Group H · CSE 457 ]"
+    "[ TRUE END — Night at CSE2 ]"
+    "[ Everyone danced. The report got an A. Paul G. Allen ascended. ]"
+    "[ Group H · CSE 457 ]"
     return
 
 
@@ -1077,20 +874,15 @@ label ending_true:
 
 label scene_jumpscare:
 
-    stop music fadeout 0.8
-
-    hide mc idle
-    hide mc hiding
-    hide mc panicked
-    hide mc running
+    scene bg hallway
 
     "You stop."
     "Things are eerily quiet- maybe he missed you some-."
 
     pause 0.5
 
-    play sound "audio/jumpscare.ogg"
-    $ renpy.movie_cutscene("images/anims/fnaf.webm")
+    show groupmate angry at jumpscare_rush with None
+    pause 0.4
 
     scene black with jumpscare_flash
     pause 0.2
@@ -1108,9 +900,9 @@ label scene_jumpscare:
 
     pause 0.4
 
-    "[[ BAD END ]"
+    "[ BAD END ]"
     ""
-    "[[ TWO NIGHTS AT CSE2 — COMING NEVER ]"
-    "[[ Group H · CSE 457 ]"
+    "[ TWO NIGHTS AT CSE2 — COMING NEVER ]"
+    "[ Group H · CSE 457 ]"
 
     return
