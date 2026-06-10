@@ -6,13 +6,15 @@
 # ── BACKGROUNDS ──────────────────────────────────────────────
 image bg uw night     = im.Scale("uw night.jpg",                       1920, 1080)
 image bg exterior     = im.Scale("cseoutside.jpg",                     1920, 1080)
-image bg lobby        = im.Scale("cse building 1st floor inside.jpg",  1920, 1080)
-image bg hallway      = im.Scale("cse building 1st floor inside.jpg",  1920, 1080)
-image bg stairwell    = Solid("#080808")
-image bg floor2       = Solid("#0a0c18")   # TODO: replace with photo of floor 2 hallway
-image bg floor2_lab   = Solid("#0c0e20")   # TODO: replace with photo of a lab room
-image bg floor3       = Solid("#0c0a14")   # TODO: replace with photo of floor 3 hallway
-image bg seitz_office = im.Scale("images/seitz_room.jpeg", 1920, 1080)   # TODO: replace with photo of office door
+image bg lobby        = im.Scale("images/cse lobby.jpeg",              1920, 1080)
+image bg hallway      = im.Scale("images/cse lobby.jpeg",              1920, 1080)
+image bg stairwell    = im.Scale("images/cse building 1st floor inside.jpg", 1920, 1080)
+image bg floor2       = im.Scale("images/second floor.jpeg",              1920, 1080)
+image bg floor2_lab   = im.Scale("images/second floor.jpeg",              1920, 1080)
+image bg floor3       = im.Scale("images/second floor.jpeg",              1920, 1080)
+image bg elevator     = im.Scale("images/elevator inside.jpeg",           1920, 1080)
+image bg seitz_office = im.Scale("images/seitz_room.jpeg",                1920, 1080)
+image bg bulletin     = im.Scale("images/bg_bulletin.png", 1920, 1080)
 image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof photo
 
 # ── ANIMATIONS (definitions in mc_sprites.rpy / groupmate_sprites.rpy) ──
@@ -42,10 +44,196 @@ image bg roof         = Solid("#000510")   # TODO: replace with night sky / roof
 # GROUPMATE — TODO: dance anim (true ending)
 #
 # Placeholder PNGs still used below for MC states without a WebM yet.
-image mc idle     = "images/mc_placeholder.png"
-image mc hiding   = "images/mc_placeholder.png"
-image mc cooking  = "images/mc_placeholder.png"
-image mc typing   = "images/mc_placeholder.png"
+image mc idle:
+    block:
+        "images/mc_idle_frames/frame0001.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0002.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0003.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0004.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0005.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0006.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0007.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0008.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0009.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0010.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0011.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0012.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0013.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0014.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0015.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0016.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0017.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0018.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0019.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0020.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0021.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0022.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0023.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0024.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0025.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0026.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0027.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0028.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0029.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0030.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0031.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0032.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0033.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0034.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0035.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0036.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0037.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0038.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0039.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0040.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0041.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0042.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0043.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0044.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0045.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0046.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0047.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0048.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0049.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0050.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0051.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0052.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0053.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0054.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0055.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0056.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0057.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0058.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0059.png"
+        pause 0.041667
+        "images/mc_idle_frames/frame0060.png"
+        pause 0.041667
+        repeat
+
+image mc hiding:
+    block:
+        "images/anim_frames_scream/frame0001.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0002.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0003.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0004.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0005.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0006.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0007.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0008.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0009.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0010.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0011.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0012.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0013.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0014.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0015.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0016.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0017.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0018.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0019.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0020.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0021.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0022.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0023.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0024.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0025.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0026.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0027.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0028.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0029.png"
+        pause 0.041667
+        "images/anim_frames_scream/frame0030.png"
+        pause 0.041667
+        repeat
+
+image mc cooking  = "images/anim_frames_idle/frame0001.png"
+image mc typing   = "images/anim_frames_idle/frame0001.png"
 
 # ── NPC SPRITES ──────────────────────────────────────────────
 image seitz idle  = "images/seitz_placeholder.png"
@@ -54,16 +242,21 @@ image paul idle   = "images/paul_placeholder.png"    # [TODO: 3D model]
 
 # ── CHARACTER POSITIONS ──────────────────────────────────────
 transform player_spot:
-    xalign 0.12 yalign 1.0 zoom 0.82
+    xalign 0.12 ypos 0.8 yanchor 1.0 zoom 0.74
 
 transform npc_spot:
-    xalign 0.82 yalign 1.0 zoom 0.82
+    xalign 0.80 yalign 1.0 zoom 0.82
 
 transform npc_far:
-    xalign 0.78 yalign 1.0 zoom 0.62
+    xalign 0.57 yalign 1.0 zoom 0.62
 
 transform center_stage:
-    xalign 0.5 yalign 1.0 zoom 0.82
+    xalign 0.5 yalign .0 zoom 0.82
+
+transform paul_spot:
+    xpos 0.5 ypos 0.32
+    xanchor 0.5 yanchor 0.5
+    zoom 2
 
 # ── TRANSITIONS ──────────────────────────────────────────────
 define flash           = Fade(0.1,  0.0, 0.4, color="#ffffff")
@@ -106,6 +299,7 @@ label start:
     scene black with fade
 
     "3:00 AM."
+    play music "audio/scary-start.ogg"
     "You are walking home after a long day of doomscrolling."
     "The campus is empty. Quiet. The fountain is lit up. It's kind of nice actually."
 
@@ -156,6 +350,7 @@ label start:
     hide mc with None
     hide groupmate with None
 
+    stop music fadeout 1.0
     jump scene1_entrance
 
 
@@ -595,7 +790,7 @@ label scene3:
 
 label scene4_elevator_route:
 
-    scene bg stairwell with dissolve
+    scene bg elevator with dissolve
 
     "You take the elevator and wait in your brief moment of peace."
 
@@ -606,6 +801,8 @@ label scene4_elevator_route:
 
 
 label scene4_roof_approach:
+
+    play music "audio/action.ogg" fadein 0.8
 
     scene bg stairwell with dissolve
 
@@ -747,6 +944,8 @@ label scene4_upload_climax:
 
 label scene4_ending_branch:
 
+    stop music fadeout 1.0
+
     if has_tendon_kohaku:
         jump ending_true
     elif report_quality >= 3:
@@ -819,7 +1018,7 @@ label ending_true:
 
     "A beam of golden light splits the clouds."
 
-    show paul idle at center_stage with dissolve
+    show paul idle at paul_spot with dissolve
 
     paul "..."
 
@@ -845,6 +1044,8 @@ label ending_true:
     paul "Tell him I said hello."
 
     "A pause."
+
+    play sound "audio/CELEBRATION.ogg"
 
     paul "The grade is an A."
 
@@ -876,7 +1077,12 @@ label ending_true:
 
 label scene_jumpscare:
 
-    scene bg hallway
+    stop music fadeout 0.8
+
+    hide mc idle
+    hide mc hiding
+    hide mc panicked
+    hide mc running
 
     "You stop."
     "Things are eerily quiet- maybe he missed you some-."
@@ -884,8 +1090,7 @@ label scene_jumpscare:
     pause 0.5
 
     play sound "audio/jumpscare.ogg"
-    show groupmate jumpscare at jumpscare_rush with None
-    pause 0.4
+    $ renpy.movie_cutscene("images/anims/fnaf.webm")
 
     scene black with jumpscare_flash
     pause 0.2
